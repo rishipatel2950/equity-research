@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EquityDesk Research | Rishi Patel — FIN 6500 Stock Pitch Portfolio</title>
+<meta name="description" content="Institutional equity research portfolio by Rishi Patel. Full 3-statement financial model, DCF, EV/EBITDA comps, and investment thesis. Featured: Photronics (PLAB).">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=JetBrains+Mono:wght@300;400;500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060810;--s1:#0c0f1a;--s2:#111520;--s3:#181e2e;
+  --bd:#1d2438;--bd2:#242d44;
+  --g:#00d4aa;--gd:rgba(0,212,170,.1);
+  --gold:#d4a017;--goldd:rgba(212,160,23,.12);
+  --red:#e05252;--blu:#4b8cf5;
+  --tx:#dde3f0;--mu:#7a86a8;--mu2:#3a4260;
+  --serif:'Playfair Display',Georgia,serif;
+  --mono:'JetBrains Mono',monospace;
+  --body:'DM Sans',sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:var(--body);font-size:14px;line-height:1.6;min-height:100vh;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,212,170,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,170,.022) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
+
+/* COVER */
+.cover{position:relative;z-index:1;background:linear-gradient(160deg,#0a0e1a,#060810);border-bottom:1px solid var(--bd);padding:44px 0 0}
+.cov-in{max-width:1360px;margin:0 auto;padding:0 36px}
+.abar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px}
+.al{display:flex;align-items:center;gap:14px}
+.av{width:44px;height:44px;background:linear-gradient(135deg,var(--g),#009070);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.an{font-family:var(--serif);font-size:22px;font-weight:700;letter-spacing:-.02em}
+.at{font-family:var(--mono);font-size:10px;color:var(--mu);letter-spacing:.1em;margin-top:2px}
+.ar{display:flex;gap:8px;flex-wrap:wrap}
+.abg{font-family:var(--mono);font-size:9px;letter-spacing:.1em;padding:4px 12px;border-radius:4px}
+.abg-g{background:var(--gd);color:var(--g);border:1px solid rgba(0,212,170,.2)}
+.abg-gold{background:var(--goldd);color:var(--gold);border:1px solid rgba(212,160,23,.25)}
+.abg-b{background:rgba(75,140,245,.1);color:var(--blu);border:1px solid rgba(75,140,245,.2)}
+.hed{font-family:var(--serif);font-size:clamp(26px,4.5vw,52px);font-weight:900;letter-spacing:-.03em;line-height:1.05;margin-bottom:10px}
+.hed em{font-style:normal;color:var(--g)}
+.sub{font-size:14px;color:var(--mu);max-width:660px;line-height:1.65;margin-bottom:28px}
+
+/* SPEED BANNER */
+.speed-bar{background:var(--goldd);border:1px solid rgba(212,160,23,.3);border-radius:8px;padding:10px 18px;margin-bottom:20px;display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.06em;flex-wrap:wrap}
+.speed-bar strong{color:var(--tx)}
+
+/* SEARCH */
+.srch-strip{background:var(--s2);border:1px solid var(--bd);border-bottom:none;border-radius:10px 10px 0 0;padding:18px 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.srch-lbl{font-family:var(--mono);font-size:10px;color:var(--mu);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.srch-inp{flex:1;min-width:180px;max-width:300px;background:var(--s3);border:1px solid var(--bd2);border-radius:6px;padding:11px 16px;font-family:var(--mono);font-size:15px;color:var(--tx);text-transform:uppercase;letter-spacing:.12em;outline:none;transition:border-color .2s,box-shadow .2s}
+.srch-inp::placeholder{color:var(--mu2);text-transform:none;letter-spacing:0;font-size:12px}
+.srch-inp:focus{border-color:var(--g);box-shadow:0 0 0 3px rgba(0,212,170,.08)}
+.srch-btn{background:linear-gradient(135deg,var(--g),#00a880);color:#000;border:none;border-radius:6px;padding:11px 22px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;cursor:pointer;transition:opacity .15s,transform .1s;white-space:nowrap}
+.srch-btn:hover{opacity:.88;transform:translateY(-1px)}
+.srch-btn:active{transform:none}
+.srch-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.ql-row{display:flex;gap:6px;flex-wrap:wrap;align-items:center;width:100%;margin-top:4px}
+.ql{font-family:var(--mono);font-size:9px;color:var(--mu2);letter-spacing:.1em}
+.qc{font-family:var(--mono);font-size:10px;color:var(--mu);background:var(--s3);border:1px solid var(--bd);padding:3px 11px;border-radius:4px;cursor:pointer;transition:all .15s;letter-spacing:.06em;position:relative}
+.qc:hover{color:var(--g);border-color:var(--g);background:var(--gd)}
+.qc.on{color:var(--g);border-color:var(--g);background:var(--gd)}
+.inst-dot{display:inline-block;width:6px;height:6px;background:var(--g);border-radius:50%;margin-left:5px;vertical-align:middle}
+.ai-dot{display:inline-block;width:6px;height:6px;background:var(--blu);border-radius:50%;margin-left:5px;vertical-align:middle}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:200;background:rgba(6,8,16,.97);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px)}
+.nav-in{max-width:1360px;margin:0 auto;padding:0 36px;display:flex;overflow-x:auto}
+.ntab{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);padding:12px 20px;border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;transition:color .2s,border-color .2s}
+.ntab:hover{color:var(--tx)}.ntab.on{color:var(--g);border-bottom-color:var(--g)}
+
+/* MAIN */
+.main{position:relative;z-index:1;max-width:1360px;margin:0 auto;padding:28px 36px 80px}
+.tc{display:none}.tc.on{display:block}
+
+/* SKELETON */
+.sk{background:linear-gradient(90deg,var(--s2) 25%,var(--bd) 50%,var(--s2) 75%);background-size:200% 100%;animation:shim 1.4s infinite;border-radius:4px}
+@keyframes shim{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+/* CO HEADER */
+.co-hdr{background:linear-gradient(135deg,var(--s1),#0a0e1c);border:1px solid var(--bd);border-radius:12px;padding:26px 30px;display:flex;align-items:flex-start;justify-content:space-between;gap:22px;flex-wrap:wrap;margin-bottom:18px;position:relative;overflow:hidden}
+.co-hdr::before{content:'';position:absolute;top:-40px;right:-40px;width:220px;height:220px;background:radial-gradient(circle,rgba(0,212,170,.06),transparent 70%);pointer-events:none}
+.col{flex:1;min-width:230px}
+.ctk{font-family:var(--mono);font-size:11px;color:var(--g);background:var(--gd);border:1px solid rgba(0,212,170,.2);padding:3px 10px;border-radius:4px;display:inline-block;margin-bottom:8px;letter-spacing:.15em}
+.cn{font-family:var(--serif);font-size:28px;font-weight:900;letter-spacing:-.025em;line-height:1.1;margin-bottom:6px}
+.cd{color:var(--mu);font-size:13px;line-height:1.65;max-width:510px}
+.cmeta{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.ctag{font-family:var(--mono);font-size:9px;color:var(--mu);background:var(--s3);border:1px solid var(--bd);padding:2px 9px;border-radius:3px;letter-spacing:.06em}
+.cor{text-align:right;flex-shrink:0}
+.cprice{font-family:var(--serif);font-size:46px;font-weight:900;letter-spacing:-.04em;line-height:1}
+.cchg{font-family:var(--mono);font-size:12px;margin-top:4px}
+.cinfo{font-family:var(--mono);font-size:10px;color:var(--mu);margin-top:3px}
+.rat{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;padding:6px 14px;border-radius:6px;margin-top:8px}
+.rb{background:rgba(0,212,170,.14);color:var(--g);border:1px solid rgba(0,212,170,.3)}
+.rs{background:rgba(224,82,82,.12);color:var(--red);border:1px solid rgba(224,82,82,.3)}
+.rh{background:rgba(212,160,23,.12);color:var(--gold);border:1px solid rgba(212,160,23,.3)}
+.up{color:var(--g)}.dn{color:var(--red)}.neu{color:var(--mu)}
+
+/* THESIS */
+.thbar{border-radius:8px;padding:13px 18px;margin-bottom:18px;display:flex;align-items:flex-start;gap:12px;font-size:13px;line-height:1.65}
+.thbar.buy{background:rgba(0,212,170,.06);border:1px solid rgba(0,212,170,.2)}
+.thbar.sell{background:rgba(224,82,82,.06);border:1px solid rgba(224,82,82,.2)}
+.thbar.hold{background:rgba(212,160,23,.06);border:1px solid rgba(212,160,23,.2)}
+.thi{font-size:20px;flex-shrink:0;margin-top:1px}
+.thb{color:var(--mu)}.thb strong{color:var(--tx)}
+
+/* KPIS */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(126px,1fr));gap:10px;margin-bottom:18px}
+.kpi{background:var(--s1);border:1px solid var(--bd);border-radius:8px;padding:13px 15px}
+.kl{font-family:var(--mono);font-size:9px;color:var(--mu);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.kv{font-family:var(--serif);font-size:21px;font-weight:700;letter-spacing:-.02em;line-height:1}
+.ks{font-family:var(--mono);font-size:10px;margin-top:4px}
+
+/* PANELS */
+.panel{background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:19px 21px;margin-bottom:16px}
+.pt{font-family:var(--mono);font-size:10px;color:var(--g);letter-spacing:.14em;text-transform:uppercase;margin-bottom:13px;display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:1px solid var(--bd)}
+.pt::before{content:'';width:3px;height:13px;background:var(--g);border-radius:2px;flex-shrink:0}
+.pt-gold{color:var(--gold)}.pt-gold::before{background:var(--gold)}
+
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
+.g21{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:960px){.g2,.g3,.g21{grid-template-columns:1fr}}
+
+/* TABLE */
+.dt{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11px}
+.dt th{text-align:right;color:var(--mu);font-weight:400;padding:5px 7px;border-bottom:1px solid var(--bd);font-size:10px;letter-spacing:.05em;white-space:nowrap}
+.dt th:first-child{text-align:left}
+.dt td{padding:6px 7px;text-align:right;border-bottom:1px solid rgba(29,36,56,.7)}
+.dt td:first-child{text-align:left;color:var(--mu);font-size:10px}
+.dt tr:last-child td{border-bottom:none}
+.dt tr:hover td{background:rgba(255,255,255,.012)}
+.dtt td{color:var(--tx);font-weight:600;border-top:1px solid var(--bd2);background:rgba(255,255,255,.01)}
+.dta td{color:var(--g)}.dta td:first-child{color:var(--g)}
+.dts td{color:var(--mu);font-size:10px}
+.dthl{background:rgba(0,212,170,.04)}
+.dthl td:first-child{color:var(--g);font-weight:600}
+
+/* SCENARIOS */
+.scg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px}
+.sc{border-radius:8px;padding:13px;text-align:center;border:1px solid var(--bd)}
+.sc.bear{background:rgba(224,82,82,.06);border-color:rgba(224,82,82,.2)}
+.sc.base{background:rgba(75,140,245,.06);border-color:rgba(75,140,245,.2)}
+.sc.bull{background:rgba(0,212,170,.06);border-color:rgba(0,212,170,.2)}
+.scl{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.sc.bear .scl{color:var(--red)}.sc.base .scl{color:var(--blu)}.sc.bull .scl{color:var(--g)}
+.scm{font-family:var(--mono);font-size:10px;color:var(--mu);margin-bottom:3px}
+.scp{font-family:var(--serif);font-size:24px;font-weight:700;letter-spacing:-.03em}
+.sc.bear .scp{color:var(--red)}.sc.base .scp{color:var(--blu)}.sc.bull .scp{color:var(--g)}
+.scu{font-family:var(--mono);font-size:10px;margin-top:3px}
+.sc.bear .scu{color:var(--red)}.sc.base .scu{color:var(--blu)}.sc.bull .scu{color:var(--g)}
+
+/* WTD */
+.wtdbox{background:linear-gradient(135deg,var(--s2),#0a0e1c);border:1px solid rgba(212,160,23,.25);border-radius:8px;padding:18px;text-align:center;margin-top:12px}
+.wl{font-family:var(--mono);font-size:9px;color:var(--mu);letter-spacing:.12em;text-transform:uppercase}
+.wp{font-family:var(--serif);font-size:38px;font-weight:900;color:var(--gold);letter-spacing:-.03em;margin-top:4px}
+.wu{font-family:var(--mono);font-size:12px;color:var(--g);margin-top:3px}
+.wm{font-family:var(--mono);font-size:9px;color:var(--mu);margin-top:2px}
+
+/* PROGRESS */
+.pr{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.pr:last-child{margin-bottom:0}
+.pn{font-size:11px;color:var(--mu);min-width:115px}
+.ptrk{flex:1;background:var(--s3);border-radius:3px;height:4px}
+.pf{height:4px;border-radius:3px}
+.pfg{background:linear-gradient(90deg,var(--g),#009070)}
+.pfb{background:linear-gradient(90deg,var(--blu),#2050c0)}
+.pfo{background:linear-gradient(90deg,#e08030,#b06010)}
+.pv{font-family:var(--mono);font-size:11px;min-width:44px;text-align:right}
+
+/* GEO */
+.georow{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.geolbl{font-family:var(--mono);font-size:10px;color:var(--mu);min-width:80px}
+.geotr{flex:1;background:var(--s3);border-radius:3px;height:7px}
+.geofil{height:7px;border-radius:3px;background:linear-gradient(90deg,var(--blu),#2050c0)}
+.geov{font-family:var(--mono);font-size:10px;color:var(--tx);min-width:54px;text-align:right}
+
+/* BAR CHART */
+.bcht{display:flex;align-items:flex-end;gap:5px;height:108px;padding-top:10px}
+.bcol{flex:1;display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end;gap:4px}
+.bvl{font-family:var(--mono);font-size:8px;color:var(--mu);text-align:center}
+.bstk{width:100%;border-radius:2px 2px 0 0;overflow:hidden;display:flex;flex-direction:column-reverse}
+.b1{background:var(--blu)}.b2{background:#e07b2a}.b3{background:var(--g)}.b4{background:#5a7fa0}
+.byl{font-family:var(--mono);font-size:8px;color:var(--mu);white-space:nowrap}
+.segl{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.segi{display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:9px;color:var(--mu)}
+.segd{width:8px;height:8px;border-radius:1px;flex-shrink:0}
+
+/* BULLETS */
+.buls{list-style:none;display:flex;flex-direction:column;gap:10px}
+.buli{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--mu);line-height:1.55}
+.buln{font-family:var(--mono);font-size:9px;font-weight:700;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;color:#000}
+.bng{background:var(--g)}.bnr{background:var(--red)}
+.buli strong{color:var(--tx)}
+
+/* SENS */
+.stbl{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11px}
+.stbl th{background:var(--s2);color:var(--mu);padding:6px 9px;text-align:center;font-size:10px;font-weight:500;border:1px solid var(--bd)}
+.stbl th:first-child{text-align:left}
+.stbl td{padding:5px 9px;text-align:center;border:1px solid var(--bd)}
+.stbl td:first-child{text-align:left;background:var(--s2);font-weight:600}
+.shi{background:rgba(0,212,170,.12);color:var(--g);font-weight:600}
+.smi{background:rgba(75,140,245,.08);color:var(--blu)}
+.slo{background:rgba(224,82,82,.08);color:var(--red)}
+
+/* COMP */
+.cself{background:rgba(0,212,170,.04)}
+.cself td:first-child{color:var(--g);font-weight:600}
+
+/* WTD TABLE */
+.wtbl{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11px}
+.wtbl th{text-align:left;color:var(--mu);font-size:10px;font-weight:400;padding:5px 7px;border-bottom:1px solid var(--bd);letter-spacing:.05em}
+.wtbl th:not(:first-child){text-align:right}
+.wtbl td{padding:6px 7px;border-bottom:1px solid rgba(29,36,56,.5)}
+.wtbl td:not(:first-child){text-align:right}
+.wtbl tr:last-child td{border-top:1px solid var(--bd2);background:var(--s2);font-weight:600;border-bottom:none}
+
+/* NOTICE */
+.note{padding:9px 13px;border-radius:6px;font-family:var(--mono);font-size:10px;margin-bottom:12px;line-height:1.6}
+.nok{background:rgba(0,212,170,.06);border:1px solid rgba(0,212,170,.2);color:var(--g)}
+.ninfo{background:rgba(75,140,245,.06);border:1px solid rgba(75,140,245,.2);color:var(--blu)}
+.nwarn{background:rgba(224,82,82,.06);border:1px solid rgba(224,82,82,.2);color:var(--red)}
+.ngold{background:var(--goldd);border:1px solid rgba(212,160,23,.25);color:var(--gold)}
+
+/* SOURCE */
+.srcbar{font-family:var(--mono);font-size:9px;color:var(--mu2);display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;padding-top:8px;border-top:1px solid var(--bd)}
+.srci{display:flex;align-items:center;gap:4px}
+.srcdot{width:5px;height:5px;border-radius:50%;background:var(--mu2);flex-shrink:0}
+
+/* FEAT */
+.feat-badge{font-family:var(--mono);font-size:9px;color:var(--gold);background:var(--goldd);border:1px solid rgba(212,160,23,.2);padding:3px 10px;border-radius:4px;letter-spacing:.1em;display:inline-block;margin-bottom:6px}
+.aibadge{font-family:var(--mono);font-size:9px;color:var(--blu);background:rgba(75,140,245,.1);border:1px solid rgba(75,140,245,.2);padding:3px 10px;border-radius:4px;display:inline-flex;align-items:center;gap:5px}
+.inst-badge{font-family:var(--mono);font-size:9px;color:var(--g);background:var(--gd);border:1px solid rgba(0,212,170,.2);padding:3px 10px;border-radius:4px;display:inline-flex;align-items:center;gap:5px}
+
+/* DIVIDER */
+.div{font-family:var(--mono);font-size:9px;color:var(--mu);letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;gap:12px;margin:24px 0 16px}
+.div::before,.div::after{content:'';flex:1;height:1px;background:var(--bd)}
+
+/* FADE */
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.fa{animation:fu .35s ease both}
+.fa1{animation-delay:.06s}.fa2{animation-delay:.12s}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* FOOTER */
+footer{position:relative;z-index:1;border-top:1px solid var(--bd);padding:20px 36px;background:var(--s1)}
+.foot-in{max-width:1360px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fn{font-family:var(--serif);font-size:15px;font-weight:700}
+.fr{font-family:var(--mono);font-size:9px;color:var(--mu);letter-spacing:.07em;text-align:right;line-height:1.8}
+
+@media(max-width:700px){.cov-in,.main,.nav-in{padding-left:18px;padding-right:18px}.co-hdr{flex-direction:column}.cor{text-align:left}}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cov-in">
+    <div class="abar">
+      <div class="al">
+        <div class="av">📊</div>
+        <div>
+          <div class="an">Rishi Patel &amp; Team</div>
+          <div class="at">FIN 6500 · Equity Research Portfolio · Spring 2025</div>
+        </div>
+      </div>
+      <div class="ar">
+        <span class="abg abg-g">3-STATEMENT MODEL</span>
+        <span class="abg abg-gold">EV/EBITDA · P/E · P/B</span>
+        <span class="abg abg-b">DCF · COMPS · THESIS</span>
+      </div>
+    </div>
+
+    <div class="hed">Institutional equity research,<br><em>applied to any ticker.</em></div>
+    <div class="sub">Full financial modeling &amp; valuation framework developed for <strong style="color:var(--tx)">Photronics (PLAB)</strong> using Yahoo Finance, SEC 10-K filings, company financials &amp; segment-level revenue builds. All featured tickers load <strong style="color:var(--g)">instantly</strong>.</div>
+
+    <!-- SPEED BADGE -->
+    <div class="speed-bar">
+      ⚡ <strong>All 7 featured tickers load instantly — zero wait time.</strong>
+      &nbsp;|&nbsp; <span style="display:inline-flex;align-items:center;gap:5px"><span class="inst-dot"></span>Instant</span> = pre-built model &nbsp;|&nbsp; <span style="display:inline-flex;align-items:center;gap:5px"><span class="ai-dot"></span>~8s</span> = AI-generated for other tickers
+    </div>
+
+    <div class="srch-strip">
+      <span class="srch-lbl">Search →</span>
+      <input class="srch-inp" id="inp" type="text" placeholder="Any ticker: GOOGL, TSMC, JPM…" maxlength="10" autocomplete="off">
+      <button class="srch-btn" id="goBtn" onclick="run()">GENERATE PITCH →</button>
+      <div class="ql-row">
+        <span class="ql">INSTANT:</span>
+        <span class="qc on" id="chip-PLAB" onclick="loadStock('PLAB')">PLAB ★<span class="inst-dot"></span></span>
+        <span class="qc" id="chip-NVDA" onclick="loadStock('NVDA')">NVDA<span class="inst-dot"></span></span>
+        <span class="qc" id="chip-AAPL" onclick="loadStock('AAPL')">AAPL<span class="inst-dot"></span></span>
+        <span class="qc" id="chip-MSFT" onclick="loadStock('MSFT')">MSFT<span class="inst-dot"></span></span>
+        <span class="qc" id="chip-TSLA" onclick="loadStock('TSLA')">TSLA<span class="inst-dot"></span></span>
+        <span class="qc" id="chip-AMZN" onclick="loadStock('AMZN')">AMZN<span class="inst-dot"></span></span>
+        <span class="qc" id="chip-META" onclick="loadStock('META')">META<span class="inst-dot"></span></span>
+        <span class="ql" style="margin-left:8px">OTHER:</span>
+        <span class="qc" style="color:var(--mu2);font-size:9px">type any ticker →<span class="ai-dot"></span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-in">
+    <button class="ntab on" data-tab="overview"  onclick="showTab('overview')">Overview</button>
+    <button class="ntab"    data-tab="revenue"   onclick="showTab('revenue')">Revenue Model</button>
+    <button class="ntab"    data-tab="income"    onclick="showTab('income')">Income Statement</button>
+    <button class="ntab"    data-tab="valuation" onclick="showTab('valuation')">Valuation</button>
+    <button class="ntab"    data-tab="comps"     onclick="showTab('comps')">Comps</button>
+    <button class="ntab"    data-tab="balance"   onclick="showTab('balance')">Balance Sheet</button>
+    <button class="ntab"    data-tab="thesis"    onclick="showTab('thesis')">Thesis &amp; Risks</button>
+  </div>
+</nav>
+
+<main class="main">
+  <div id="coHdr"  class="fa"></div>
+  <div id="thBar"  class="fa fa1"></div>
+  <div id="kpiArea" class="fa fa2"></div>
+  <div class="tc on" id="tc-overview"></div>
+  <div class="tc"    id="tc-revenue"></div>
+  <div class="tc"    id="tc-income"></div>
+  <div class="tc"    id="tc-valuation"></div>
+  <div class="tc"    id="tc-comps"></div>
+  <div class="tc"    id="tc-balance"></div>
+  <div class="tc"    id="tc-thesis"></div>
+</main>
+
+<footer>
+  <div class="foot-in">
+    <div>
+      <div class="fn">EquityDesk Research</div>
+      <div style="font-family:var(--mono);font-size:9px;color:var(--mu);margin-top:3px;letter-spacing:.07em">Rishi Patel · Katty Guerra · Smriti Amar · Camden Smith · FIN 6500 · Spring 2025</div>
+    </div>
+    <div class="fr">Data: Yahoo Finance · SEC EDGAR 10-K · Company Financials · Morningstar<br>For educational &amp; research purposes only. Not investment advice.</div>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   ALL 7 PRE-BUILT STOCK DATABASES
+   Sources: Yahoo Finance, 10-K filings, company financials
+   Each loads INSTANTLY — zero API calls, zero wait
+═══════════════════════════════════════════════════════ */
+const STOCKS = {};
+
+/* ─── PLAB (Your FIN 6500 Project) ─────────────────── */
+STOCKS.PLAB = {
+  ticker:'PLAB', name:'Photronics, Inc.', exchange:'NASDAQ', isFeatured:true,
+  sector:'Technology', industry:'Semiconductor Equipment & Materials',
+  price:18.68, chg:-0.14, chgPct:-0.74, mktcap:1187e6,
+  desc:'Photronics manufactures photomasks — photographic glass plates that transfer circuit patterns onto semiconductor wafers and flat-panel displays. Founded 1969, public since 1987. 11 global manufacturing sites across Taiwan, China, Korea, Europe, and the US.',
+  rating:'BUY', pt:35.00, wt:31.78,
+  thesis:'PLAB trades at a severe discount to intrinsic value (P/E 7.94x vs 61.7x industry; P/B 1.08x vs 2.32x peers; EV/EBITDA ~6x vs 9-10x). Our probability-weighted 2-year target of $31.78 implies 70%+ upside. Structural margin expansion, fortress net-cash balance sheet ($598M+, zero LT debt), and AI-driven chip complexity are the core catalysts.',
+  kpis:[
+    {l:'Market Cap',v:'$1.19B',s:'At 4/24/2025',c:'neu'},
+    {l:'Revenue FY2024',v:'$866.9M',s:'−2.82% YoY',c:'dn'},
+    {l:'EBITDA',v:'$306.5M',s:'Margin 35.4%',c:'up'},
+    {l:'Gross Margin',v:'36.4%',s:'→41.2% 2029P',c:'up'},
+    {l:'Trailing P/E',v:'7.94x',s:'Industry: 61.7x',c:'dn'},
+    {l:'EV/EBITDA',v:'~6.0x',s:'Industry: 9–10x',c:'dn'},
+    {l:'Net Cash',v:'$598M+',s:'Zero LT Debt',c:'up'},
+    {l:'FCF',v:'$130.6M',s:'CFO: $261.5M',c:'up'},
+    {l:'P/B Ratio',v:'1.08x',s:'Industry: 2.32x',c:'dn'},
+    {l:'EPS TTM',v:'$2.35',s:'Fwd: $2.25',c:'neu'}
+  ],
+  segs:[
+    {y:'2020A',a:156.1,b:262.3,c:139.6,d:51.7,e:false},{y:'2021A',a:163.0,b:297.2,c:155.7,d:47.9,e:false},
+    {y:'2022A',a:195.3,b:397.7,c:187.0,d:44.5,e:false},{y:'2023A',a:194.9,b:456.3,c:200.8,d:40.0,e:false},
+    {y:'2024A',a:228.5,b:409.7,c:195.4,d:33.4,e:false},{y:'2025P',a:255.9,b:442.5,c:205.1,d:30.8,e:true},
+    {y:'2026P',a:284.0,b:475.6,c:214.4,d:28.6,e:true},{y:'2027P',a:313.9,b:508.9,c:222.9,d:26.9,e:true},
+    {y:'2028P',a:345.2,b:539.5,c:229.6,d:25.5,e:true},{y:'2029P',a:376.3,b:571.8,c:235.4,d:24.5,e:true}
+  ],
+  segLabels:['IC High-End (AI/HPC)','IC Mainstream','FPD High-End (OLED)','FPD Mainstream'],
+  income:[
+    {l:'Revenue',v:[609.7,663.8,824.6,892.1,866.9,934.2,1002.6,1072.6,1139.9,1208.1],hc:'7.29%',fc:'5.28%',t:'tot'},
+    {l:'Gross Profit',v:[134.7,167.0,294.2,336.2,315.9,368.0,407.1,431.2,461.7,497.7],hc:'18.60%',fc:'6.17%',t:'acc'},
+    {l:'Gross Margin%',v:['22.1%','25.2%','35.7%','37.7%','36.4%','39.5%','40.6%','40.2%','40.5%','41.2%'],hc:'',fc:'',t:'sub'},
+    {l:'EBIT',v:[63.9,94.6,211.9,253.1,221.5,266.3,297.8,309.9,336.4,352.2],hc:'28.22%',fc:'5.75%',t:'nor'},
+    {l:'EBITDA',v:[157.2,192.9,319.5,336.4,306.5,355.0,393.0,411.9,424.7,467.0],hc:'14.28%',fc:'5.63%',t:'acc'},
+    {l:'Net Income',v:[40.3,78.8,179.2,199.7,183.9,216.4,239.6,248.1,258.3,292.3],hc:'35.44%',fc:'6.20%',t:'tot'},
+    {l:'Net Margin%',v:['6.6%','11.9%','21.7%','22.4%','21.2%','23.2%','23.9%','23.1%','22.7%','24.2%'],hc:'',fc:'',t:'sub'},
+    {l:'EPS Diluted',v:['$0.50','$0.89','$1.94','$2.03','$2.09','$2.47','$2.73','$2.83','$2.94','$3.33'],hc:'',fc:'',t:'sub'}
+  ],
+  geo:[{n:'Taiwan',v:288275,p:.82},{n:'China',v:232941,p:.67},{n:'Korea',v:158017,p:.45},{n:'United States',v:146652,p:.42},{n:'Europe',v:39244,p:.11}],
+  peScen:[{s:'bear',l:'Bear',m:'8x P/E',p:18.00,u:-3.6},{s:'base',l:'Base',m:'12x P/E',p:27.00,u:44.5},{s:'bull',l:'Bull',m:'15x P/E',p:33.75,u:80.7}],
+  pbScen:[{s:'bear',l:'Bear',m:'P/B 0.90x',p:18.70,u:0.1},{s:'base',l:'Base',m:'P/B 1.08x',p:22.44,u:20.2},{s:'bull',l:'Bull',m:'P/B 2.32x',p:48.21,u:158.1}],
+  evScen:[{s:'bear',l:'Bear',m:'4.0x EBITDA',p:26.85,u:43.7},{s:'base',l:'Base',m:'5.5x EBITDA',p:48.40,u:159.1},{s:'bull',l:'Bull',m:'7.2x EBITDA',p:77.22,u:313.4}],
+  wtdRows:[{m:'EV/EBITDA (2026P)',t:48.40,w:'30%',c:14.52},{m:'P/E Base 12x',t:27.00,w:'40%',c:10.80},{m:'P/B Base 1.08x',t:22.44,w:'30%',c:6.72}],
+  comps:[
+    {n:'Photronics ★',t:'PLAB',mc:'$1.19B',ee:'~6.0x',pe:'7.94x',pb:'1.08x',rg:'-2.8%',gm:'36.4%',nm:'21.2%',note:'DEEP VALUE',self:true},
+    {n:'Dai Nippon Printing',t:'DNP.F',mc:'~$8.5B',ee:'~9.5x',pe:'~14x',pb:'~1.5x',rg:'~3%',gm:'~28%',nm:'~7%',note:'Diversified'},
+    {n:'Hoya Corporation',t:'7741.T',mc:'~$38B',ee:'~20x',pe:'~32x',pb:'~4.5x',rg:'~6%',gm:'~55%',nm:'~22%',note:'Med-Tech+'},
+    {n:'Camtek',t:'CAMT',mc:'~$1.9B',ee:'~18x',pe:'~29x',pb:'~4.2x',rg:'~18%',gm:'~53%',nm:'~25%',note:'Inspection'},
+    {n:'Onto Innovation',t:'ONTO',mc:'~$3.4B',ee:'~21x',pe:'~38x',pb:'~3.8x',rg:'~15%',gm:'~48%',nm:'~18%',note:'Metrology'},
+    {n:'Peer Median',t:'—',mc:'~$5B',ee:'~13x',pe:'~26x',pb:'~2.9x',rg:'~8%',gm:'~45%',nm:'~17%',note:'',med:true}
+  ],
+  balance:[
+    {l:'Cash & Equiv.',y0:278.7,y2:319.7,y4:598.5,y6:858.0,y9:1477.3,t:'acc'},
+    {l:'Total Current Assets',y0:500.1,y2:644.7,y4:931.1,y6:1208.1,y9:1899.1,t:'tot'},
+    {l:'PP&E (net)',y0:631.5,y2:643.9,y4:745.3,y6:904.8,y9:1069.6,t:'nor'},
+    {l:'Total Assets',y0:1188.2,y2:1315.8,y4:1712.1,y6:2139.4,y9:2995.9,t:'tot'},
+    {l:'Long-Term Debt',y0:55.0,y2:32.3,y4:0.0,y6:0,y9:0,t:'sub'},
+    {l:'Total Liabilities',y0:225.9,y2:253.7,y4:231.3,y6:217.6,y9:252.4,t:'nor'},
+    {l:'Total Equity',y0:962.3,y2:1062.1,y4:1480.8,y6:1921.8,y9:2743.5,t:'tot'}
+  ],
+  balHdrs:['2020A','2022A','2024A','2026P','2029P'],
+  bull:[
+    {t:'Mission-Critical Role in Semiconductor Fab',b:'Photomasks underpin every lithography step. EUV masks now exceed $300K — directly expanding PLAB\'s ASP and gross margins. Long-term, design-specific customer relationships create sticky, high-margin revenue.'},
+    {t:'Secular Tailwinds: AI, 5G, IoT & EV',b:'Every advanced chip requires more photomask layers per design cycle. AI infrastructure, 5G buildouts, autonomous vehicles, and OLED displays are structural multi-year demand drivers across PLAB\'s full product portfolio.'},
+    {t:'Fortress Balance Sheet: $598M Net Cash, Zero LT Debt',b:'Exceptional financial strength enables fully self-funded growth capex and buybacks. Current ratio above 3.5x — extremely rare in capital-intensive semiconductor manufacturing.'},
+    {t:'Deep Value: 76% P/E Discount to Industry',b:'7.94x P/E vs 61.7x industry. Gross margins expanding from 22.1% (2020) to 41.2% (2029P). Earnings growth expected to outpace revenue as IC High-End mix increases.'},
+    {t:'Strategic Global Footprint & Asia Expansion',b:'11 sites in every major semiconductor hub. Recent Asia capacity additions target IC High-End — highest-ASP segment with 8.02% forward CAGR through 2029P.'}
+  ],
+  risk:[
+    {t:'Cyclical Semiconductor Industry',b:'In downturns customers reduce chip design activity, cutting photomask demand. FY2024 revenue fell 2.82% from elevated channel inventory. Mitigant: Zero debt, $598M cash, low fixed costs provide multi-cycle resilience.'},
+    {t:'Technological Obsolescence',b:'Chip nodes shrink rapidly (3nm→2nm→angstrom). PLAB must continuously invest in EUV-capable R&D. Mitigant: Active capex in EUV facilities fully funded by net-cash balance sheet.'},
+    {t:'Geopolitical Risk & China Tariff Exposure',b:'83% revenue non-US; ~27% from China via Xiamen JV. US-China tensions and 2025 tariffs threaten supply chain. Mitigant: Geographic diversification across Taiwan, Korea, US, Europe.'}
+  ]
+};
+
+/* ─── NVDA ──────────────────────────────────────────── */
+STOCKS.NVDA = {
+  ticker:'NVDA', name:'NVIDIA Corporation', exchange:'NASDAQ',
+  sector:'Technology', industry:'Semiconductors — AI Infrastructure',
+  price:875.40, chg:12.30, chgPct:1.43, mktcap:2150e9,
+  desc:'NVIDIA designs GPUs and system-on-chip units for gaming, professional visualization, data centers, and AI. The company dominates AI training hardware with its H100/H200/Blackwell GPU architecture and has an unmatched software moat via the CUDA developer ecosystem.',
+  rating:'BUY', pt:1100.00, wt:980.00,
+  thesis:'NVIDIA is the defining AI infrastructure company of this decade. Its GPU monopoly on AI training, CUDA software ecosystem with 4M+ developers, and accelerating Blackwell ramp position it for continued hypergrowth. Data center revenue grew 409% YoY in FY2024. We rate BUY with a $1,100 12-month price target.',
+  kpis:[
+    {l:'Market Cap',v:'$2.15T',s:'Largest chip co.',c:'up'},
+    {l:'Revenue (TTM)',v:'$96.3B',s:'+122% YoY',c:'up'},
+    {l:'Gross Margin',v:'75.0%',s:'Record high',c:'up'},
+    {l:'Net Margin',v:'55.0%',s:'Industry-leading',c:'up'},
+    {l:'Trailing P/E',v:'~65x',s:'Growth premium',c:'neu'},
+    {l:'Data Center Rev',v:'$87.6B',s:'+409% YoY',c:'up'},
+    {l:'Free Cash Flow',v:'$33.7B',s:'TTM',c:'up'},
+    {l:'Net Cash',v:'~$26B',s:'Minimal debt',c:'up'},
+    {l:'EPS (TTM)',v:'$~14.00',s:'Fwd: ~$24',c:'up'},
+    {l:'Revenue Guidance',v:'$43B+',s:'Next quarter',c:'up'}
+  ],
+  segs:[
+    {y:'FY21A',a:6.70,b:4.92,c:0.61,d:1.54,e:false},{y:'FY22A',a:11.05,b:7.76,c:0.60,d:2.11,e:false},
+    {y:'FY23A',a:15.00,b:9.07,c:1.35,d:2.18,e:false},{y:'FY24A',a:47.50,b:3.10,c:1.13,d:2.04,e:false},
+    {y:'FY25P',a:87.60,b:2.80,c:1.00,d:2.05,e:true},{y:'FY26P',a:120.0,b:2.60,c:0.95,d:2.00,e:true},
+    {y:'FY27P',a:148.0,b:2.40,c:0.90,d:1.95,e:true},{y:'FY28P',a:170.0,b:2.30,c:0.88,d:1.90,e:true},
+    {y:'FY29P',a:190.0,b:2.20,c:0.85,d:1.85,e:true},{y:'FY30P',a:208.0,b:2.10,c:0.82,d:1.80,e:true}
+  ],
+  segLabels:['Data Center (AI)','Gaming','Professional Viz','Automotive & Other'],
+  income:[
+    {l:'Revenue ($B)',v:[16.7,26.9,26.9,60.9,130.5,160.0,190.0,215.0,238.0,258.0],hc:'38.0%',fc:'15.0%',t:'tot'},
+    {l:'Gross Profit',v:[10.2,17.5,15.4,44.3,98.1,122.0,146.0,166.0,185.0,202.0],hc:'',fc:'',t:'acc'},
+    {l:'Gross Margin%',v:['61.3%','65.0%','57.2%','72.7%','75.0%','76.3%','76.8%','77.2%','77.7%','78.3%'],hc:'',fc:'',t:'sub'},
+    {l:'EBIT',v:[5.6,10.0,5.6,34.0,81.0,103.0,127.0,148.0,167.0,184.0],hc:'',fc:'',t:'nor'},
+    {l:'EBITDA',v:[6.3,10.9,6.6,35.3,84.0,107.0,132.0,154.0,174.0,191.0],hc:'',fc:'',t:'acc'},
+    {l:'Net Income',v:[4.3,9.8,4.1,29.8,72.9,91.0,113.0,133.0,151.0,167.0],hc:'',fc:'',t:'tot'},
+    {l:'Net Margin%',v:['25.6%','36.2%','15.3%','48.9%','55.9%','56.9%','59.5%','61.9%','63.4%','64.7%'],hc:'',fc:'',t:'sub'},
+    {l:'EPS Diluted',v:['$1.73','$3.85','$1.74','$11.93','$29.00','$36.00','$44.50','$52.00','$59.00','$65.00'],hc:'',fc:'',t:'sub'}
+  ],
+  geo:[{n:'United States',v:30000,p:.78},{n:'Taiwan',v:8500,p:.22},{n:'China (ex-restricted)',v:3500,p:.09},{n:'Europe',v:4100,p:.11},{n:'Other Asia',v:3200,p:.08}],
+  peScen:[{s:'bear',l:'Bear',m:'40x P/E',p:580,u:-33.7},{s:'base',l:'Base',m:'60x P/E',p:870,u:-0.6},{s:'bull',l:'Bull',m:'80x P/E',p:1160,u:32.5}],
+  pbScen:[{s:'bear',l:'Bear',m:'20x P/B',p:600,u:-31.4},{s:'base',l:'Base',m:'32x P/B',p:960,u:9.7},{s:'bull',l:'Bull',m:'45x P/B',p:1350,u:54.2}],
+  evScen:[{s:'bear',l:'Bear',m:'25x EV/EBITDA',p:650,u:-25.7},{s:'base',l:'Base',m:'38x EV/EBITDA',p:980,u:12.0},{s:'bull',l:'Bull',m:'55x EV/EBITDA',p:1420,u:62.2}],
+  wtdRows:[{m:'EV/EBITDA Base',t:980,w:'30%',c:294},{m:'P/E Base 60x',t:870,w:'40%',c:348},{m:'P/B Base 32x',t:960,w:'30%',c:288}],
+  comps:[
+    {n:'NVIDIA ★',t:'NVDA',mc:'$2.15T',ee:'~50x',pe:'~65x',pb:'~35x',rg:'+122%',gm:'75.0%',nm:'55.0%',note:'AI LEADER',self:true},
+    {n:'AMD',t:'AMD',mc:'~$240B',ee:'~50x',pe:'~100x',pb:'~3.5x',rg:'+14%',gm:'51%',nm:'6%',note:'GPU Challenger'},
+    {n:'Intel',t:'INTC',mc:'~$120B',ee:'~18x',pe:'N/M',pb:'~1.2x',rg:'-8%',gm:'35%',nm:'-12%',note:'Restructuring'},
+    {n:'Broadcom',t:'AVGO',mc:'~$860B',ee:'~28x',pe:'~35x',pb:'~10x',rg:'+44%',gm:'74%',nm:'38%',note:'Custom AI ASIC'},
+    {n:'Qualcomm',t:'QCOM',mc:'~$190B',ee:'~15x',pe:'~20x',pb:'~5x',rg:'+12%',gm:'56%',nm:'28%',note:'Mobile/Edge AI'},
+    {n:'Peer Median',t:'—',mc:'—',ee:'~28x',pe:'~35x',pb:'~5x',rg:'+12%',gm:'56%',nm:'28%',note:'',med:true}
+  ],
+  balance:[
+    {l:'Cash & Short-Term Inv.',y0:11.6,y2:13.3,y4:34.8,y6:55.0,y9:110.0,t:'acc'},
+    {l:'Total Current Assets',y0:14.0,y2:20.1,y4:45.0,y6:72.0,y9:138.0,t:'tot'},
+    {l:'Total Assets',y0:17.3,y2:30.0,y4:65.7,y6:105.0,y9:195.0,t:'tot'},
+    {l:'Long-Term Debt',y0:5.9,y2:9.7,y4:8.5,y6:7.0,y9:5.0,t:'sub'},
+    {l:'Total Liabilities',y0:8.5,y2:17.6,y4:22.3,y6:30.0,y9:48.0,t:'nor'},
+    {l:'Total Equity',y0:8.8,y2:12.4,y4:42.9,y6:75.0,y9:147.0,t:'tot'}
+  ],
+  balHdrs:['FY21A','FY22A','FY24A','FY26P','FY29P'],
+  bull:[
+    {t:'AI GPU Monopoly with CUDA Software Moat',b:'NVIDIA holds 90%+ share in AI training accelerators. The CUDA ecosystem with 4M+ developers creates switching costs that reinforce hardware dominance across every wave of AI infrastructure buildout.'},
+    {t:'Blackwell Architecture Ramp Driving Revenue Acceleration',b:'Blackwell GPU demand is "insane" per CEO Jensen Huang. Hyperscaler capex (Microsoft, Google, Amazon, Meta) remains robust at $300B+ planned for 2025, directly benefiting NVIDIA.'},
+    {t:'Networking & Software Expanding TAM Beyond Chips',b:'NVIDIA\'s InfiniBand/Spectrum-X networking and CUDA software stack extend the TAM well beyond semiconductor chips. NIM microservices and the Omniverse platform open additional revenue streams.'}
+  ],
+  risk:[
+    {t:'Export Controls on China — Material Revenue Risk',b:'China represented ~17% of data center revenue before restrictions. Further export control tightening could impact $10B+ annually. Mitigant: Sovereign AI demand in other markets partially offsets.'},
+    {t:'Competition from Custom Silicon & AMD MI300X',b:'Google TPU, Amazon Trainium, Microsoft Maia, and AMD MI300X are gaining traction. Mitigant: CUDA ecosystem lock-in and Blackwell performance lead maintain near-term advantage.'},
+    {t:'Valuation Risk at 60x+ P/E',b:'Any AI spending deceleration or execution miss at 60x earnings leaves no margin of safety. Supply chain bottlenecks (CoWoS packaging) also constrain near-term upside. Mitigant: Secular AI infrastructure buildout expected to persist 5+ years.'}
+  ]
+};
+
+/* ─── AAPL ──────────────────────────────────────────── */
+STOCKS.AAPL = {
+  ticker:'AAPL', name:'Apple Inc.', exchange:'NASDAQ',
+  sector:'Technology', industry:'Consumer Electronics & Services',
+  price:189.30, chg:0.85, chgPct:0.45, mktcap:2920e9,
+  desc:'Apple designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories. The Services segment — App Store, iCloud, Apple TV+, Apple Pay — is the fastest-growing, highest-margin business with 2.2B+ active devices driving recurring revenue.',
+  rating:'BUY', pt:230.00, wt:210.00,
+  thesis:'Apple\'s installed base of 2.2B+ active devices creates an unmatched Services flywheel. Apple Intelligence AI integration drives the most compelling iPhone upgrade narrative since 5G. Capital returns of $110B+ annually compress the float. We rate BUY with $230 12-month target.',
+  kpis:[
+    {l:'Market Cap',v:'$2.92T',s:'2nd largest global',c:'up'},
+    {l:'Revenue (TTM)',v:'$391B',s:'+2% YoY',c:'up'},
+    {l:'Gross Margin',v:'46.2%',s:'Record high',c:'up'},
+    {l:'Services Rev',v:'$96B',s:'+13% YoY',c:'up'},
+    {l:'Trailing P/E',v:'~31x',s:'Premium justified',c:'neu'},
+    {l:'iPhone Revenue',v:'$201B',s:'51% of total',c:'neu'},
+    {l:'Free Cash Flow',v:'$107B',s:'TTM',c:'up'},
+    {l:'Net Cash',v:'~$60B',s:'After debt',c:'up'},
+    {l:'EPS (TTM)',v:'$6.35',s:'Fwd: ~$7.20',c:'up'},
+    {l:'Buybacks',v:'$90B+',s:'Annual program',c:'up'}
+  ],
+  segs:[
+    {y:'FY20A',a:137.8,b:28.6,c:23.7,d:17.5,e:false},{y:'FY21A',a:192.0,b:38.4,c:31.4,d:21.7,e:false},
+    {y:'FY22A',a:205.5,b:40.4,c:29.3,d:19.8,e:false},{y:'FY23A',a:200.6,b:41.2,c:29.4,d:22.3,e:false},
+    {y:'FY24A',a:201.0,b:40.1,c:30.9,d:24.9,e:false},{y:'FY25P',a:210.0,b:42.5,c:33.0,d:28.0,e:true},
+    {y:'FY26P',a:222.0,b:45.0,c:36.0,d:32.0,e:true},{y:'FY27P',a:232.0,b:47.8,c:39.0,d:36.5,e:true},
+    {y:'FY28P',a:240.0,b:50.5,c:42.0,d:41.0,e:true},{y:'FY29P',a:248.0,b:53.5,c:45.0,d:46.0,e:true}
+  ],
+  segLabels:['iPhone','Mac + iPad','Wearables & Home','Services'],
+  income:[
+    {l:'Revenue ($B)',v:[274.5,365.8,394.3,383.3,391.0,415.0,442.0,466.0,488.0,510.0],hc:'4.0%',fc:'5.5%',t:'tot'},
+    {l:'Gross Profit',v:[104.9,152.8,170.8,169.1,180.7,196.0,213.0,228.0,243.0,258.0],hc:'',fc:'',t:'acc'},
+    {l:'Gross Margin%',v:['38.2%','41.8%','43.3%','44.1%','46.2%','47.2%','48.2%','48.9%','49.8%','50.6%'],hc:'',fc:'',t:'sub'},
+    {l:'EBIT',v:[66.3,108.9,119.4,114.3,123.2,135.0,149.0,161.0,172.0,183.0],hc:'',fc:'',t:'nor'},
+    {l:'EBITDA',v:[77.3,120.2,130.0,125.8,135.0,147.0,162.0,175.0,187.0,198.0],hc:'',fc:'',t:'acc'},
+    {l:'Net Income',v:[57.4,94.7,99.8,97.0,101.0,113.0,126.0,137.0,148.0,158.0],hc:'',fc:'',t:'tot'},
+    {l:'Net Margin%',v:['20.9%','25.9%','25.3%','25.3%','25.8%','27.2%','28.5%','29.4%','30.3%','31.0%'],hc:'',fc:'',t:'sub'},
+    {l:'EPS Diluted',v:['$3.28','$5.61','$6.11','$6.13','$6.35','$7.20','$8.20','$9.20','$10.20','$11.20'],hc:'',fc:'',t:'sub'}
+  ],
+  geo:[{n:'Americas',v:169.7,p:.79},{n:'Europe',v:94.3,p:.44},{n:'Greater China',v:72.6,p:.34},{n:'Japan',v:25.1,p:.12},{n:'Rest of Asia',v:29.4,p:.14}],
+  peScen:[{s:'bear',l:'Bear',m:'25x P/E',p:160,u:-15.5},{s:'base',l:'Base',m:'30x P/E',p:192,u:1.4},{s:'bull',l:'Bull',m:'38x P/E',p:244,u:28.9}],
+  pbScen:[{s:'bear',l:'Bear',m:'7x P/B',p:165,u:-12.8},{s:'base',l:'Base',m:'10x P/B',p:235,u:24.1},{s:'bull',l:'Bull',m:'14x P/B',p:329,u:73.8}],
+  evScen:[{s:'bear',l:'Bear',m:'18x EV/EBITDA',p:165,u:-12.8},{s:'base',l:'Base',m:'23x EV/EBITDA',p:210,u:11.0},{s:'bull',l:'Bull',m:'30x EV/EBITDA',p:274,u:44.7}],
+  wtdRows:[{m:'EV/EBITDA Base 23x',t:210,w:'30%',c:63},{m:'P/E Base 30x',t:192,w:'40%',c:76.8},{m:'P/B Base 10x',t:235,w:'30%',c:70.5}],
+  comps:[
+    {n:'Apple ★',t:'AAPL',mc:'$2.92T',ee:'~23x',pe:'~31x',pb:'~45x',rg:'+2%',gm:'46.2%',nm:'25.8%',note:'SERVICES MOAT',self:true},
+    {n:'Microsoft',t:'MSFT',mc:'~$3.3T',ee:'~25x',pe:'~35x',pb:'~12x',rg:'+15%',gm:'70%',nm:'36%',note:'Cloud+AI'},
+    {n:'Alphabet',t:'GOOGL',mc:'~$2.3T',ee:'~16x',pe:'~22x',pb:'~6x',rg:'+14%',gm:'58%',nm:'29%',note:'Search+Cloud'},
+    {n:'Samsung',t:'005930',mc:'~$330B',ee:'~8x',pe:'~15x',pb:'~1.5x',rg:'+8%',gm:'38%',nm:'12%',note:'Hardware'},
+    {n:'Meta',t:'META',mc:'~$1.4T',ee:'~18x',pe:'~28x',pb:'~8x',rg:'+20%',gm:'81%',nm:'36%',note:'Social AI'},
+    {n:'Peer Median',t:'—',mc:'—',ee:'~18x',pe:'~28x',pb:'~7x',rg:'+14%',gm:'64%',nm:'29%',note:'',med:true}
+  ],
+  balance:[
+    {l:'Cash & Investments',y0:90.9,y2:48.3,y4:65.2,y6:80.0,y9:110.0,t:'acc'},
+    {l:'Total Current Assets',y0:143.7,y2:135.4,y4:152.9,y6:175.0,y9:220.0,t:'tot'},
+    {l:'Total Assets',y0:323.9,y2:352.8,y4:364.9,y6:390.0,y9:450.0,t:'tot'},
+    {l:'Total Debt',y0:112.4,y2:120.1,y4:101.3,y6:85.0,y9:65.0,t:'sub'},
+    {l:'Total Liabilities',y0:258.5,y2:302.1,y4:308.0,y6:310.0,y9:320.0,t:'nor'},
+    {l:'Shareholders Equity',y0:65.3,y2:50.7,y4:56.9,y6:80.0,y9:130.0,t:'tot'}
+  ],
+  balHdrs:['FY20A','FY22A','FY24A','FY26P','FY29P'],
+  bull:[
+    {t:'2.2B Device Installed Base Drives Services Flywheel',b:'Apple Intelligence AI features and the $29/month Apple One bundle are expanding Services ARPU. Services is 25%+ gross margin vs 36% product — mix shift benefits overall margins.'},
+    {t:'Apple Intelligence — Most Compelling iPhone Upgrade in Years',b:'On-device AI features differentiate iPhone 16/17 from Android. The upgrade supercycle is expected to drive 220M+ unit sales in FY2025, above consensus.'},
+    {t:'Capital Return Program — $90B+ Annual Buybacks Compress Float',b:'Apple has returned over $700B to shareholders since 2013. At current pace, ~5% of shares are retired annually, providing a built-in EPS growth floor even if revenue is flat.'}
+  ],
+  risk:[
+    {t:'China Revenue Risk — 17% of Sales Under Pressure',b:'Huawei domestic competition is pressuring Apple\'s share in China. Government restrictions on iPhone use in state firms add risk. Mitigant: India manufacturing ramp reduces concentration.'},
+    {t:'Antitrust & Regulatory Pressure on App Store',b:'DOJ lawsuit and EU Digital Markets Act are forcing browser/payment changes, threatening high-margin App Store economics. Mitigant: Apple\'s ecosystem lock-in limits churn regardless of fee changes.'},
+    {t:'Premium Smartphone Market Saturation',b:'Developed market penetration is near 100%. ASP growth and Services attach rates must drive revenue instead of unit volume. Mitigant: Emerging markets (India, SE Asia) provide next 500M device opportunity.'}
+  ]
+};
+
+/* ─── MSFT ──────────────────────────────────────────── */
+STOCKS.MSFT = {
+  ticker:'MSFT', name:'Microsoft Corporation', exchange:'NASDAQ',
+  sector:'Technology', industry:'Enterprise Software & Cloud',
+  price:414.50, chg:3.20, chgPct:0.78, mktcap:3080e9,
+  desc:'Microsoft develops cloud computing (Azure), productivity software (Microsoft 365/Copilot), gaming (Xbox/Activision), and professional network (LinkedIn). Azure is the #2 cloud provider with 29% market share and AI workload leadership via the OpenAI partnership.',
+  rating:'BUY', pt:500.00, wt:460.00,
+  thesis:'Microsoft is the most defensible large-cap AI investment. Azure is gaining cloud share driven by AI workloads. Microsoft 365 Copilot at $30/seat represents the largest ARPU expansion opportunity in a decade. Government cloud + healthcare are high-margin growth vectors. BUY — $500 target.',
+  kpis:[
+    {l:'Market Cap',v:'$3.08T',s:'Largest global co.',c:'up'},
+    {l:'Revenue (TTM)',v:'$245B',s:'+15% YoY',c:'up'},
+    {l:'Gross Margin',v:'70.0%',s:'Software/cloud mix',c:'up'},
+    {l:'Azure Growth',v:'+29%',s:'Constant currency',c:'up'},
+    {l:'Trailing P/E',v:'~35x',s:'Premium quality',c:'neu'},
+    {l:'Cloud Revenue',v:'$135B',s:'55% of total',c:'up'},
+    {l:'Free Cash Flow',v:'$70B',s:'TTM',c:'up'},
+    {l:'Net Cash',v:'~$50B',s:'After Activision',c:'up'},
+    {l:'EPS (TTM)',v:'~$11.45',s:'Fwd: ~$13.50',c:'up'},
+    {l:'Copilot ARPU',v:'+$30/seat',s:'M365 Copilot',c:'up'}
+  ],
+  segs:[
+    {y:'FY20A',a:43.1,b:53.8,c:62.6,d:7.0,e:false},{y:'FY21A',a:54.1,b:63.4,c:77.7,d:8.1,e:false},
+    {y:'FY22A',a:63.4,b:75.3,c:98.1,d:7.5,e:false},{y:'FY23A',a:69.3,b:87.9,c:111.6,d:7.6,e:false},
+    {y:'FY24A',a:79.0,b:101.0,c:135.0,d:13.0,e:false},{y:'FY25P',a:90.0,b:115.0,c:163.0,d:15.0,e:true},
+    {y:'FY26P',a:102.0,b:130.0,c:194.0,d:18.0,e:true},{y:'FY27P',a:114.0,b:145.0,c:225.0,d:20.0,e:true},
+    {y:'FY28P',a:126.0,b:160.0,c:255.0,d:22.0,e:true},{y:'FY29P',a:138.0,b:175.0,c:284.0,d:24.0,e:true}
+  ],
+  segLabels:['Productivity & BizApps','Personal Computing','Intelligent Cloud (Azure)','Gaming'],
+  income:[
+    {l:'Revenue ($B)',v:[143.0,168.1,198.3,211.9,245.1,285.0,330.0,374.0,416.0,458.0],hc:'14.4%',fc:'13.3%',t:'tot'},
+    {l:'Gross Profit',v:[96.5,115.9,135.6,146.1,171.6,203.0,238.0,273.0,308.0,342.0],hc:'',fc:'',t:'acc'},
+    {l:'Gross Margin%',v:['67.5%','69.0%','68.4%','69.0%','70.0%','71.2%','72.1%','73.0%','74.0%','74.7%'],hc:'',fc:'',t:'sub'},
+    {l:'EBIT',v:[53.0,69.9,83.4,88.5,109.4,131.0,156.0,180.0,204.0,226.0],hc:'',fc:'',t:'nor'},
+    {l:'EBITDA',v:[62.8,80.7,96.7,103.2,126.0,151.0,178.0,205.0,231.0,255.0],hc:'',fc:'',t:'acc'},
+    {l:'Net Income',v:[44.3,61.3,72.7,72.4,88.1,107.0,128.0,148.0,168.0,187.0],hc:'',fc:'',t:'tot'},
+    {l:'Net Margin%',v:['31.0%','36.5%','36.7%','34.2%','35.9%','37.5%','38.8%','39.6%','40.4%','40.8%'],hc:'',fc:'',t:'sub'},
+    {l:'EPS Diluted',v:['$5.76','$8.05','$9.65','$9.72','$11.45','$13.50','$16.20','$18.90','$21.50','$24.00'],hc:'',fc:'',t:'sub'}
+  ],
+  geo:[{n:'United States',v:105.0,p:.79},{n:'Other Americas',v:12.0,p:.09},{n:'Europe, Middle East, Africa',v:75.0,p:.57},{n:'Asia Pacific',v:53.0,p:.40}],
+  peScen:[{s:'bear',l:'Bear',m:'28x P/E',p:320,u:-22.8},{s:'base',l:'Base',m:'37x P/E',p:423,u:2.1},{s:'bull',l:'Bull',m:'45x P/E',p:514,u:24.0}],
+  pbScen:[{s:'bear',l:'Bear',m:'8x P/B',p:352,u:-15.1},{s:'base',l:'Base',m:'12x P/B',p:528,u:27.4},{s:'bull',l:'Bull',m:'16x P/B',p:704,u:69.8}],
+  evScen:[{s:'bear',l:'Bear',m:'20x EV/EBITDA',p:340,u:-18.0},{s:'base',l:'Base',m:'28x EV/EBITDA',p:476,u:14.8},{s:'bull',l:'Bull',m:'38x EV/EBITDA',p:646,u:55.9}],
+  wtdRows:[{m:'EV/EBITDA Base 28x',t:476,w:'30%',c:142.8},{m:'P/E Base 37x',t:423,w:'40%',c:169.2},{m:'P/B Base 12x',t:528,w:'30%',c:158.4}],
+  comps:[
+    {n:'Microsoft ★',t:'MSFT',mc:'$3.08T',ee:'~28x',pe:'~35x',pb:'~12x',rg:'+15%',gm:'70.0%',nm:'35.9%',note:'CLOUD LEADER',self:true},
+    {n:'Alphabet',t:'GOOGL',mc:'~$2.3T',ee:'~16x',pe:'~22x',pb:'~6x',rg:'+14%',gm:'58%',nm:'29%',note:'Search+Cloud'},
+    {n:'Amazon',t:'AMZN',mc:'~$2.2T',ee:'~22x',pe:'~45x',pb:'~8x',rg:'+11%',gm:'48%',nm:'9%',note:'AWS #1'},
+    {n:'Salesforce',t:'CRM',mc:'~$310B',ee:'~20x',pe:'~33x',pb:'~5x',rg:'+11%',gm:'78%',nm:'15%',note:'CRM leader'},
+    {n:'Oracle',t:'ORCL',mc:'~$440B',ee:'~22x',pe:'~30x',pb:'~N/M',rg:'+14%',gm:'73%',nm:'24%',note:'Cloud DB'},
+    {n:'Peer Median',t:'—',mc:'—',ee:'~21x',pe:'~30x',pb:'~6x',rg:'+13%',gm:'68%',nm:'24%',note:'',med:true}
+  ],
+  balance:[
+    {l:'Cash & Short-Term Inv.',y0:136.5,y2:104.8,y4:75.5,y6:90.0,y9:130.0,t:'acc'},
+    {l:'Total Current Assets',y0:181.9,y2:169.7,y4:159.7,y6:185.0,y9:240.0,t:'tot'},
+    {l:'Total Assets',y0:301.3,y2:364.8,y4:512.2,y6:570.0,y9:680.0,t:'tot'},
+    {l:'Long-Term Debt',y0:55.0,y2:47.0,y4:42.7,y6:35.0,y9:25.0,t:'sub'},
+    {l:'Total Liabilities',y0:183.0,y2:198.3,y4:243.7,y6:255.0,y9:280.0,t:'nor'},
+    {l:'Shareholders Equity',y0:118.3,y2:166.5,y4:268.5,y6:315.0,y9:400.0,t:'tot'}
+  ],
+  balHdrs:['FY20A','FY22A','FY24A','FY26P','FY29P'],
+  bull:[
+    {t:'Azure AI Workload Growth Accelerating',b:'Azure grew 29% in the most recent quarter, outpacing AWS. AI inference and training workloads are driving incremental cloud spending with higher-margin GPU instances.'},
+    {t:'Microsoft 365 Copilot — Largest ARPU Jump in a Decade',b:'At $30/seat added to M365 Enterprise, Copilot could add $10B+ in annual recurring revenue as adoption scales. Early enterprise feedback shows 70%+ satisfaction and productivity gains.'},
+    {t:'OpenAI Partnership Creates Durable AI Product Leadership',b:'Microsoft\'s $13B investment in OpenAI and exclusive Azure hosting rights create a structural AI advantage. GPT-4 integration across all Microsoft products drives user retention and new sales.'}
+  ],
+  risk:[
+    {t:'Azure Growth Deceleration Risk',b:'If hyperscaler AI capex slows or enterprises delay cloud migration, Azure revenue growth could fall below 20%, compressing the multiple. Mitigant: Long-term enterprise contracts and AI demand durability.'},
+    {t:'Antitrust & OpenAI Relationship Uncertainty',b:'FTC scrutiny of OpenAI partnership and Activision integration could limit strategic flexibility. OpenAI equity dilution concerns as the company raises additional rounds. Mitigant: Microsoft\'s enterprise relationships are product-agnostic.'},
+    {t:'Activision Integration Costs & Gaming Softness',b:'$69B Activision acquisition faces integration risk as gaming market softens. COD and mobile gaming need to justify the premium paid. Mitigant: Game Pass subscription model provides recurring revenue floor.'}
+  ]
+};
+
+/* ─── TSLA ──────────────────────────────────────────── */
+STOCKS.TSLA = {
+  ticker:'TSLA', name:'Tesla, Inc.', exchange:'NASDAQ',
+  sector:'Consumer Discretionary / Technology', industry:'EVs, Energy & AI',
+  price:172.50, chg:-3.20, chgPct:-1.82, mktcap:552e9,
+  desc:'Tesla designs, manufactures, and sells electric vehicles, energy storage systems, and solar products. The company also generates revenue from software (Full Self-Driving), AI/robotics (Optimus), and the Supercharger network. Tesla operates 5 Gigafactories globally.',
+  rating:'HOLD', pt:200.00, wt:185.00,
+  thesis:'Tesla faces near-term margin pressure from price cuts and rising competition, while the long-term optionality in FSD autonomy, Robotaxi, and Optimus is difficult to value. Near-term fundamentals deteriorating but transformative tech optionality justifies HOLD at current levels.',
+  kpis:[
+    {l:'Market Cap',v:'$552B',s:'Still premium EV co.',c:'neu'},
+    {l:'Revenue (TTM)',v:'$97.7B',s:'+1% YoY',c:'dn'},
+    {l:'Gross Margin',v:'18.2%',s:'Under pressure',c:'dn'},
+    {l:'Auto Margin',v:'17.4%',s:'Recovering',c:'neu'},
+    {l:'Trailing P/E',v:'~50x',s:'Optionality priced in',c:'neu'},
+    {l:'Deliveries',v:'1.81M',s:'FY2024 (−1.1%)',c:'dn'},
+    {l:'Free Cash Flow',v:'$2.5B',s:'TTM compressed',c:'dn'},
+    {l:'Net Cash',v:'$36B',s:'Strong balance sheet',c:'up'},
+    {l:'EPS (TTM)',v:'$~2.04',s:'Fwd: ~$2.80',c:'up'},
+    {l:'Energy Revenue',v:'$9.0B',s:'+67% YoY',c:'up'}
+  ],
+  segs:[
+    {y:'FY20A',a:27.2,b:1.99,c:0,d:0,e:false},{y:'FY21A',a:44.0,b:3.80,c:0,d:0,e:false},
+    {y:'FY22A',a:71.5,b:5.00,c:0,d:0,e:false},{y:'FY23A',a:82.4,b:6.0,c:0,d:0,e:false},
+    {y:'FY24A',a:77.1,b:9.0,c:0,d:0,e:false},{y:'FY25P',a:85.0,b:14.0,c:4.0,d:0,e:true},
+    {y:'FY26P',a:96.0,b:20.0,c:10.0,d:2.0,e:true},{y:'FY27P',a:110.0,b:26.0,c:20.0,d:8.0,e:true},
+    {y:'FY28P',a:126.0,b:32.0,c:35.0,d:20.0,e:true},{y:'FY29P',a:140.0,b:40.0,c:55.0,d:40.0,e:true}
+  ],
+  segLabels:['Automotive','Energy Generation & Storage','Services & Other (FSD/Robotaxi)','Optimus & Other Future'],
+  income:[
+    {l:'Revenue ($B)',v:[31.5,53.8,81.5,97.7,97.7,113.0,138.0,168.0,203.0,250.0],hc:'32.8%',fc:'20.6%',t:'tot'},
+    {l:'Gross Profit',v:[6.6,13.7,17.4,17.7,17.8,23.0,31.0,41.0,53.0,69.0],hc:'',fc:'',t:'acc'},
+    {l:'Gross Margin%',v:['21.0%','25.3%','21.3%','18.1%','18.2%','20.4%','22.5%','24.4%','26.1%','27.6%'],hc:'',fc:'',t:'sub'},
+    {l:'EBIT',v:[2.0,6.5,13.7,8.9,7.4,11.0,18.0,27.0,38.0,52.0],hc:'',fc:'',t:'nor'},
+    {l:'EBITDA',v:[4.2,9.6,17.6,12.9,11.6,15.5,23.0,33.0,45.0,60.0],hc:'',fc:'',t:'acc'},
+    {l:'Net Income',v:[0.7,5.5,12.6,15.0,7.3,9.0,15.0,24.0,35.0,50.0],hc:'',fc:'',t:'tot'},
+    {l:'Net Margin%',v:['2.1%','10.3%','15.5%','15.3%','7.5%','8.0%','10.9%','14.3%','17.2%','20.0%'],hc:'',fc:'',t:'sub'},
+    {l:'EPS Diluted',v:['$0.22','$1.87','$4.07','$4.30','$2.04','$2.80','$4.50','$7.00','$10.00','$14.50'],hc:'',fc:'',t:'sub'}
+  ],
+  geo:[{n:'United States',v:38.0,p:.78},{n:'China (Shanghai Giga)',v:21.0,p:.43},{n:'Other',v:8.3,p:.17},{n:'Europe (Berlin Giga)',v:16.0,p:.33},{n:'Energy Storage',v:9.0,p:.18}],
+  peScen:[{s:'bear',l:'Bear',m:'30x P/E',p:84,u:-51.3},{s:'base',l:'Base',m:'50x P/E',p:140,u:-18.8},{s:'bull',l:'Bull',m:'100x P/E',p:280,u:62.3}],
+  pbScen:[{s:'bear',l:'Bear',m:'5x P/B',p:130,u:-24.6},{s:'base',l:'Base',m:'9x P/B',p:234,u:35.7},{s:'bull',l:'Bull',m:'15x P/B',p:390,u:126.1}],
+  evScen:[{s:'bear',l:'Bear',m:'20x EV/EBITDA',p:116,u:-32.8},{s:'base',l:'Base',m:'35x EV/EBITDA',p:203,u:17.7},{s:'bull',l:'Bull',m:'60x EV/EBITDA',p:348,u:101.7}],
+  wtdRows:[{m:'EV/EBITDA Base 35x',t:203,w:'30%',c:60.9},{m:'P/E Base 50x',t:140,w:'40%',c:56.0},{m:'P/B Base 9x',t:234,w:'30%',c:70.2}],
+  comps:[
+    {n:'Tesla ★',t:'TSLA',mc:'$552B',ee:'~35x',pe:'~50x',pb:'~9x',rg:'+1%',gm:'18.2%',nm:'7.5%',note:'EV + AI',self:true},
+    {n:'BYD',t:'BYD',mc:'~$100B',ee:'~12x',pe:'~18x',pb:'~3x',rg:'+28%',gm:'20%',nm:'5%',note:'China EV leader'},
+    {n:'GM',t:'GM',mc:'~$55B',ee:'~5x',pe:'~6x',pb:'~0.7x',rg:'+3%',gm:'14%',nm:'5%',note:'Legacy OEM EV'},
+    {n:'Ford',t:'F',mc:'~$55B',ee:'~8x',pe:'~12x',pb:'~1.0x',rg:'+5%',gm:'11%',nm:'2%',note:'F-150 Lightning'},
+    {n:'Rivian',t:'RIVN',mc:'~$14B',ee:'N/M',pe:'N/M',pb:'~2x',rg:'+54%',gm:'-44%',nm:'-200%',note:'Pre-profit EV'},
+    {n:'Peer Median (ex-Tesla)',t:'—',mc:'—',ee:'~8x',pe:'~12x',pb:'~1.5x',rg:'+5%',gm:'15%',nm:'4%',note:'',med:true}
+  ],
+  balance:[
+    {l:'Cash & Short-Term Inv.',y0:19.4,y2:22.2,y4:36.6,y6:48.0,y9:80.0,t:'acc'},
+    {l:'Total Current Assets',y0:26.7,y2:40.9,y4:51.2,y6:65.0,y9:105.0,t:'tot'},
+    {l:'Total Assets',y0:52.1,y2:82.3,y4:122.1,y6:150.0,y9:220.0,t:'tot'},
+    {l:'Total Debt',y0:12.1,y2:5.2,y4:7.4,y6:5.0,y9:3.0,t:'sub'},
+    {l:'Total Liabilities',y0:28.2,y2:36.4,y4:46.3,y6:55.0,y9:70.0,t:'nor'},
+    {l:'Shareholders Equity',y0:22.2,y2:44.7,y4:72.8,y6:95.0,y9:150.0,t:'tot'}
+  ],
+  balHdrs:['FY20A','FY22A','FY24A','FY26P','FY29P'],
+  bull:[
+    {t:'FSD & Robotaxi Represent Multi-Hundred-Billion Opportunity',b:'Full Self-Driving v12 neural net represents a paradigm shift in autonomous driving. Robotaxi network launch in 2025 could generate $50B+ in annual revenue by 2030 with near-100% margins.'},
+    {t:'Energy Storage Business — Fastest Growing Segment',b:'Megapack energy storage grew 67% YoY and is the highest-margin Tesla segment. Grid-scale battery demand is accelerating globally driven by renewable energy growth, creating a durable non-automotive revenue stream.'},
+    {t:'Optimus Humanoid Robot — Optionality at No Premium',b:'Production of Optimus humanoid robots at $20K-30K each targeting 1M+ units annually by 2030 could create an entirely new business vertical. Investors are paying primarily for auto & energy today.'}
+  ],
+  risk:[
+    {t:'Margin Pressure from Price Cuts & Rising Competition',b:'Multiple rounds of price cuts have compressed auto gross margins from 26% to 17.4%. BYD and Chinese EV makers are taking global share. Mitigant: Software/FSD and Energy margins partially offset.'},
+    {t:'CEO Distraction & Brand Damage',b:'Elon Musk\'s political involvement and multiple other ventures (xAI, X, SpaceX, DOGE) raise concerns about executive focus on Tesla. Brand perception surveys show declining favorability. Mitigant: Board is strengthening oversight.'},
+    {t:'FSD Regulatory Risk & Timeline Uncertainty',b:'Full autonomy requires regulatory approval in every market — a multi-year process. Any safety incidents could set back approval timelines materially. Mitigant: Supervised FSD generates revenue while unsupervised is developed.'}
+  ]
+};
+
+/* ─── AMZN ──────────────────────────────────────────── */
+STOCKS.AMZN = {
+  ticker:'AMZN', name:'Amazon.com, Inc.', exchange:'NASDAQ',
+  sector:'Technology / Consumer Discretionary', industry:'E-Commerce & Cloud Computing',
+  price:198.25, chg:1.45, chgPct:0.74, mktcap:2100e9,
+  desc:'Amazon operates three interconnected businesses: e-commerce marketplace (55% of US online retail), Amazon Web Services cloud computing (AWS — the #1 cloud with 33% market share), and digital advertising (now the 3rd largest ad platform globally). AWS and Advertising are the primary profit engines.',
+  rating:'BUY', pt:245.00, wt:225.00,
+  thesis:'Amazon\'s AWS reacceleration driven by AI workloads and advertising growth at 25%+ margins are structurally undervalued by a retail-anchored multiple. Operating margin expansion from logistics efficiency and headcount discipline provides a powerful earnings growth lever. BUY — $245 target.',
+  kpis:[
+    {l:'Market Cap',v:'$2.10T',s:'At current price',c:'up'},
+    {l:'Revenue (TTM)',v:'$620B',s:'+11% YoY',c:'up'},
+    {l:'AWS Revenue',v:'$107B',s:'+19% YoY',c:'up'},
+    {l:'Advertising Rev',v:'$56B',s:'+18% YoY',c:'up'},
+    {l:'Op. Margin',v:'10.2%',s:'Record high',c:'up'},
+    {l:'AWS Op. Margin',v:'~38%',s:'Expanding',c:'up'},
+    {l:'Free Cash Flow',v:'$54B',s:'TTM',c:'up'},
+    {l:'Net Cash',v:'~$85B',s:'Strong position',c:'up'},
+    {l:'EPS (TTM)',v:'~$5.08',s:'Fwd: ~$6.50',c:'up'},
+    {l:'Prime Members',v:'200M+',s:'Global',c:'up'}
+  ],
+  segs:[
+    {y:'FY20A',a:245.5,b:45.4,c:21.5,d:12.0,e:false},{y:'FY21A',a:293.1,b:62.2,c:31.1,d:14.0,e:false},
+    {y:'FY22A',a:302.4,b:79.7,c:38.0,d:16.0,e:false},{y:'FY23A',a:332.8,b:90.8,c:46.9,d:25.0,e:false},
+    {y:'FY24A',a:355.0,b:107.0,c:56.0,d:32.0,e:false},{y:'FY25P',a:382.0,b:128.0,c:68.0,d:40.0,e:true},
+    {y:'FY26P',a:405.0,b:152.0,c:82.0,d:50.0,e:true},{y:'FY27P',a:425.0,b:178.0,c:97.0,d:60.0,e:true},
+    {y:'FY28P',a:442.0,b:205.0,c:114.0,d:72.0,e:true},{y:'FY29P',a:458.0,b:234.0,c:132.0,d:85.0,e:true}
+  ],
+  segLabels:['E-Commerce & Retail','AWS Cloud','Advertising','Subscriptions & Other'],
+  income:[
+    {l:'Revenue ($B)',v:[386.1,469.8,513.9,574.8,620.1,680.0,750.0,820.0,890.0,965.0],hc:'12.6%',fc:'9.3%',t:'tot'},
+    {l:'Gross Profit',v:[152.7,197.5,225.2,270.4,308.1,352.0,403.0,453.0,503.0,552.0],hc:'',fc:'',t:'acc'},
+    {l:'Gross Margin%',v:['39.6%','42.0%','43.8%','47.0%','49.7%','51.8%','53.7%','55.2%','56.5%','57.2%'],hc:'',fc:'',t:'sub'},
+    {l:'EBIT',v:[22.9,24.9,12.2,36.9,68.6,87.0,110.0,132.0,155.0,178.0],hc:'',fc:'',t:'nor'},
+    {l:'EBITDA',v:[55.0,65.0,60.0,88.0,120.0,145.0,175.0,205.0,235.0,265.0],hc:'',fc:'',t:'acc'},
+    {l:'Net Income',v:[21.3,33.4,-2.7,30.4,59.2,76.0,95.0,114.0,134.0,155.0],hc:'',fc:'',t:'tot'},
+    {l:'Net Margin%',v:['5.5%','7.1%','-0.5%','5.3%','9.5%','11.2%','12.7%','13.9%','15.1%','16.1%'],hc:'',fc:'',t:'sub'},
+    {l:'EPS Diluted',v:['$2.09','$3.24','-$0.27','$2.90','$5.08','$6.50','$8.00','$9.60','$11.30','$13.00'],hc:'',fc:'',t:'sub'}
+  ],
+  geo:[{n:'North America',v:387.0,p:.79},{n:'International',v:142.0,p:.29},{n:'AWS (global)',v:107.0,p:.22},{n:'Advertising (global)',v:56.0,p:.11}],
+  peScen:[{s:'bear',l:'Bear',m:'30x P/E',p:153,u:-22.8},{s:'base',l:'Base',m:'42x P/E',p:215,u:8.5},{s:'bull',l:'Bull',m:'58x P/E',p:297,u:49.8}],
+  pbScen:[{s:'bear',l:'Bear',m:'5x P/B',p:155,u:-21.8},{s:'base',l:'Base',m:'8x P/B',p:248,u:25.1},{s:'bull',l:'Bull',m:'12x P/B',p:372,u:87.6}],
+  evScen:[{s:'bear',l:'Bear',m:'15x EV/EBITDA',p:162,u:-18.3},{s:'base',l:'Base',m:'22x EV/EBITDA',p:237,u:19.5},{s:'bull',l:'Bull',m:'32x EV/EBITDA',p:345,u:74.0}],
+  wtdRows:[{m:'EV/EBITDA Base 22x',t:237,w:'30%',c:71.1},{m:'P/E Base 42x',t:215,w:'40%',c:86.0},{m:'P/B Base 8x',t:248,w:'30%',c:74.4}],
+  comps:[
+    {n:'Amazon ★',t:'AMZN',mc:'$2.10T',ee:'~22x',pe:'~42x',pb:'~8x',rg:'+11%',gm:'49.7%',nm:'9.5%',note:'AWS + ADS',self:true},
+    {n:'Microsoft',t:'MSFT',mc:'~$3.1T',ee:'~28x',pe:'~35x',pb:'~12x',rg:'+15%',gm:'70%',nm:'36%',note:'Azure Cloud'},
+    {n:'Alphabet',t:'GOOGL',mc:'~$2.3T',ee:'~16x',pe:'~22x',pb:'~6x',rg:'+14%',gm:'58%',nm:'29%',note:'Cloud+Search'},
+    {n:'Alibaba',t:'BABA',mc:'~$200B',ee:'~5x',pe:'~8x',pb:'~1.0x',rg:'+5%',gm:'38%',nm:'12%',note:'China e-comm'},
+    {n:'Shopify',t:'SHOP',mc:'~$100B',ee:'~60x',pe:'~80x',pb:'~12x',rg:'+26%',gm:'51%',nm:'8%',note:'SMB e-comm'},
+    {n:'Peer Median',t:'—',mc:'—',ee:'~22x',pe:'~30x',pb:'~7x',rg:'+13%',gm:'55%',nm:'22%',note:'',med:true}
+  ],
+  balance:[
+    {l:'Cash & Investments',y0:84.4,y2:70.0,y4:88.1,y6:115.0,y9:175.0,t:'acc'},
+    {l:'Total Current Assets',y0:132.7,y2:146.3,y4:185.4,y6:220.0,y9:300.0,t:'tot'},
+    {l:'Total Assets',y0:321.2,y2:462.7,y4:624.9,y6:720.0,y9:900.0,t:'tot'},
+    {l:'Long-Term Debt',y0:31.8,y2:67.1,y4:58.3,y6:45.0,y9:30.0,t:'sub'},
+    {l:'Total Liabilities',y0:227.8,y2:316.6,y4:415.1,y6:450.0,y9:510.0,t:'nor'},
+    {l:'Shareholders Equity',y0:93.4,y2:146.0,y4:209.8,y6:270.0,y9:390.0,t:'tot'}
+  ],
+  balHdrs:['FY20A','FY22A','FY24A','FY26P','FY29P'],
+  bull:[
+    {t:'AWS AI Reacceleration — $100B+ Annualized Run Rate',b:'AWS returned to 19% growth driven by AI workload migrations and Bedrock/Trainium adoption. The generative AI opportunity is estimated to be a $10T+ total addressable market, and AWS is best positioned with its enterprise relationships.'},
+    {t:'Advertising — $56B Revenue at 25%+ Margins',b:'Amazon Advertising is the 3rd largest ad platform and growing 18% annually with premium ROAS for brands. Sponsored Products and Prime Video ads are still in early innings, representing meaningful incremental margin.'},
+    {t:'Operating Margin Expansion — From 5% to 15%+',b:'Logistics efficiency (same-day delivery robotics, network regionalization) and headcount discipline are driving record 10.2% operating margins. AWS and Advertising mix shift will drive margins structurally above 15% by 2027P.'}
+  ],
+  risk:[
+    {t:'Antitrust Risk — FTC Scrutiny on Marketplace',b:'FTC lawsuit over Prime subscription and third-party seller practices could force structural changes to Amazon\'s marketplace model. Mitigant: Strong enterprise relationships and AWS are structurally separate from retail antitrust risk.'},
+    {t:'AI Capex Ramp Weighing on Near-Term FCF',b:'Amazon plans $75B+ in AI infrastructure capex in 2025, compressing near-term free cash flow. Mitigant: AWS AI investment generates 3-5x ROI over 5+ years based on historical cloud capex patterns.'},
+    {t:'International Profitability Timeline',b:'International e-commerce segment has been loss-making for years. India and emerging market investments may take 5+ years to reach profitability. Mitigant: Advertising in international markets represents a high-margin overlay on existing infrastructure.'}
+  ]
+};
+
+/* ─── META ──────────────────────────────────────────── */
+STOCKS.META = {
+  ticker:'META', name:'Meta Platforms, Inc.', exchange:'NASDAQ',
+  sector:'Communication Services', industry:'Social Media & AR/VR',
+  price:512.30, chg:4.80, chgPct:0.95, mktcap:1300e9,
+  desc:'Meta operates Facebook, Instagram, WhatsApp, and Messenger, collectively reaching 3.27B daily active people (DAP). Advertising represents 97% of revenue. Reality Labs develops AR/VR hardware (Quest, Ray-Ban glasses) and the long-term metaverse platform.',
+  rating:'BUY', pt:640.00, wt:580.00,
+  thesis:'Meta\'s AI-driven advertising renaissance is producing record revenue and margin growth. Llama open-source AI leadership, WhatsApp monetization barely started, and a 3.27B DAP install base create durable competitive moats. Reality Labs losses are a strategic investment in the next computing platform. BUY — $640 target.',
+  kpis:[
+    {l:'Market Cap',v:'$1.30T',s:'At current price',c:'up'},
+    {l:'Revenue (TTM)',v:'$164B',s:'+20% YoY',c:'up'},
+    {l:'Gross Margin',v:'81.5%',s:'Software economics',c:'up'},
+    {l:'Op. Margin',v:'42.8%',s:'Record high',c:'up'},
+    {l:'Trailing P/E',v:'~28x',s:'Reasonable for growth',c:'up'},
+    {l:'DAP (Daily Active)',v:'3.27B',s:'+5% YoY',c:'up'},
+    {l:'Free Cash Flow',v:'$53B',s:'TTM',c:'up'},
+    {l:'Net Cash',v:'~$58B',s:'Zero LT debt',c:'up'},
+    {l:'EPS (TTM)',v:'~$21.40',s:'Fwd: ~$26.00',c:'up'},
+    {l:'Avg Revenue/User',v:'$13.12',s:'Q4 2024',c:'up'}
+  ],
+  segs:[
+    {y:'FY20A',a:83.0,b:1.8,c:0,d:0,e:false},{y:'FY21A',a:114.9,b:2.3,c:0,d:0,e:false},
+    {y:'FY22A',a:113.6,b:2.2,c:0,d:0,e:false},{y:'FY23A',a:131.9,b:1.9,c:0,d:0,e:false},
+    {y:'FY24A',a:160.0,b:2.3,c:0,d:0,e:false},{y:'FY25P',a:195.0,b:3.0,c:0,d:0,e:true},
+    {y:'FY26P',a:225.0,b:4.5,c:0,d:0,e:true},{y:'FY27P',a:255.0,b:7.0,c:0,d:0,e:true},
+    {y:'FY28P',a:284.0,b:10.0,c:0,d:0,e:true},{y:'FY29P',a:311.0,b:14.0,c:0,d:0,e:true}
+  ],
+  segLabels:['Family of Apps (Ads)','Reality Labs (AR/VR)','WhatsApp Business','Emerging Revenue'],
+  income:[
+    {l:'Revenue ($B)',v:[85.9,117.9,116.6,134.9,164.5,201.0,234.0,265.0,295.0,325.0],hc:'17.6%',fc:'14.6%',t:'tot'},
+    {l:'Gross Profit',v:[69.3,97.8,90.3,111.0,134.1,167.0,196.0,224.0,252.0,279.0],hc:'',fc:'',t:'acc'},
+    {l:'Gross Margin%',v:['80.6%','83.0%','77.4%','82.3%','81.5%','83.1%','83.8%','84.5%','85.4%','85.8%'],hc:'',fc:'',t:'sub'},
+    {l:'EBIT',v:[32.7,46.8,28.9,46.8,70.4,95.0,116.0,136.0,156.0,175.0],hc:'',fc:'',t:'nor'},
+    {l:'EBITDA',v:[38.5,56.6,40.8,60.6,86.0,113.0,136.0,158.0,179.0,199.0],hc:'',fc:'',t:'acc'},
+    {l:'Net Income',v:[29.1,39.4,23.2,39.1,62.3,81.0,99.0,116.0,133.0,148.0],hc:'',fc:'',t:'tot'},
+    {l:'Net Margin%',v:['33.9%','33.4%','19.9%','29.0%','37.9%','40.3%','42.3%','43.8%','45.1%','45.5%'],hc:'',fc:'',t:'sub'},
+    {l:'EPS Diluted',v:['$10.09','$13.77','$8.59','$14.87','$21.40','$26.00','$32.00','$38.00','$44.00','$50.00'],hc:'',fc:'',t:'sub'}
+  ],
+  geo:[{n:'United States & Canada',v:74.8,p:.79},{n:'Europe',v:39.5,p:.42},{n:'Asia Pacific',v:33.2,p:.35},{n:'Rest of World',v:17.1,p:.18}],
+  peScen:[{s:'bear',l:'Bear',m:'20x P/E',p:428,u:-16.4},{s:'base',l:'Base',m:'28x P/E',p:599,u:17.0},{s:'bull',l:'Bull',m:'38x P/E',p:814,u:58.9}],
+  pbScen:[{s:'bear',l:'Bear',m:'5x P/B',p:385,u:-24.8},{s:'base',l:'Base',m:'8x P/B',p:616,u:20.3},{s:'bull',l:'Bull',m:'12x P/B',p:924,u:80.4}],
+  evScen:[{s:'bear',l:'Bear',m:'12x EV/EBITDA',p:365,u:-28.7},{s:'base',l:'Base',m:'18x EV/EBITDA',p:547,u:6.8},{s:'bull',l:'Bull',m:'25x EV/EBITDA',p:760,u:48.4}],
+  wtdRows:[{m:'EV/EBITDA Base 18x',t:547,w:'30%',c:164.1},{m:'P/E Base 28x',t:599,w:'40%',c:239.6},{m:'P/B Base 8x',t:616,w:'30%',c:184.8}],
+  comps:[
+    {n:'Meta ★',t:'META',mc:'$1.30T',ee:'~18x',pe:'~28x',pb:'~8x',rg:'+20%',gm:'81.5%',nm:'37.9%',note:'SOCIAL AI',self:true},
+    {n:'Alphabet',t:'GOOGL',mc:'~$2.3T',ee:'~16x',pe:'~22x',pb:'~6x',rg:'+14%',gm:'58%',nm:'29%',note:'Search+YouTube'},
+    {n:'Snap',t:'SNAP',mc:'~$16B',ee:'N/M',pe:'N/M',pb:'~5x',rg:'+19%',gm:'53%',nm:'-13%',note:'AR-focused'},
+    {n:'Pinterest',t:'PINS',mc:'~$22B',ee:'~18x',pe:'~28x',pb:'~4x',rg:'+18%',gm:'77%',nm:'12%',note:'Visual search'},
+    {n:'TikTok/ByteDance',t:'Private',mc:'~$250B',ee:'~15x',pe:'N/A',pb:'N/A',rg:'+35%',gm:'~65%',nm:'~15%',note:'Main competitor'},
+    {n:'Peer Median',t:'—',mc:'—',ee:'~17x',pe:'~25x',pb:'~5x',rg:'+18%',gm:'62%',nm:'15%',note:'',med:true}
+  ],
+  balance:[
+    {l:'Cash & Investments',y0:62.0,y2:40.7,y4:77.8,y6:105.0,y9:165.0,t:'acc'},
+    {l:'Total Current Assets',y0:75.2,y2:58.5,y4:100.5,y6:128.0,y9:195.0,t:'tot'},
+    {l:'Total Assets',y0:159.3,y2:185.7,y4:264.2,y6:320.0,y9:440.0,t:'tot'},
+    {l:'Long-Term Debt',y0:10.2,y2:9.9,y4:28.8,y6:25.0,y9:15.0,t:'sub'},
+    {l:'Total Liabilities',y0:31.1,y2:44.4,y4:80.0,y6:90.0,y9:100.0,t:'nor'},
+    {l:'Shareholders Equity',y0:128.3,y2:125.8,y4:182.6,y6:230.0,y9:340.0,t:'tot'}
+  ],
+  balHdrs:['FY20A','FY22A','FY24A','FY26P','FY29P'],
+  bull:[
+    {t:'AI-Driven Ad Targeting Lifting CPMs and Advertiser ROI',b:'Meta\'s Advantage+ AI advertising suite is delivering 25%+ better ROAS for advertisers. Rising ad prices (CPMs) and strong conversion rates drive revenue well above content volume growth.'},
+    {t:'WhatsApp Business Monetization — Barely Started',b:'WhatsApp has 2B+ users with monetization in early innings. Business API messaging, in-chat payments in India/Brazil, and WhatsApp ads represent a $20B+ incremental revenue opportunity over 5 years.'},
+    {t:'3.27B DAP Creates Unassailable Scale Advantage',b:'Meta reaches 3.27B people daily — the largest global communication platform by far. Advertiser reach requirements and social graph lock-in make this audience impossible to replicate, creating durable pricing power.'}
+  ],
+  risk:[
+    {t:'Apple ATT Headwinds Persist on Targeting Efficacy',b:'iOS App Tracking Transparency limits user-level ad targeting across Meta\'s apps. Mitigant: On-device Advantage+ AI and first-party signal learning are partially restoring targeting precision.'},
+    {t:'Reality Labs Burning $15B+/Year with Uncertain Payoff',b:'Reality Labs has lost $50B+ since 2021 with no clear path to profitability. VR hardware uptake is slow. Mitigant: Quest 3 momentum and Ray-Ban smart glasses success suggest AR/VR has a consumer use case.'},
+    {t:'TikTok Competition & Gen-Z Attention Shift',b:'Instagram Reels is gaining on TikTok, but younger demographics are spending more time on TikTok and YouTube. Mitigant: A potential TikTok US ban would be a significant tailwind for Meta across all apps.'}
+  ]
+};
+
+/* ═══════════════════════════════════════════════════════
+   HELPERS
+═══════════════════════════════════════════════════════ */
+const fB=n=>{if(n==null||isNaN(n))return'N/A';const a=Math.abs(n);return a>=1e12?`$${(n/1e12).toFixed(2)}T`:a>=1e9?`$${(n/1e9).toFixed(2)}B`:a>=1e6?`$${(n/1e6).toFixed(0)}M`:`$${n.toFixed(0)}`};
+const fN=v=>{if(typeof v==='string')return v;if(v==null||isNaN(v))return'—';return v<0?`(${Math.abs(v).toFixed(1)})`:v.toFixed(1)};
+const sgn=n=>n>=0?'+':'';
+const $=id=>document.getElementById(id);
+
+/* ═══════════════════════════════════════════════════════
+   TAB + CHIP
+═══════════════════════════════════════════════════════ */
+function showTab(id){
+  document.querySelectorAll('.ntab').forEach(b=>b.classList.toggle('on',b.dataset.tab===id));
+  document.querySelectorAll('.tc').forEach(c=>c.classList.remove('on'));
+  const el=$('tc-'+id);if(el)el.classList.add('on');
+}
+function setChip(t){
+  document.querySelectorAll('.qc').forEach(c=>c.classList.remove('on'));
+  const el=$('chip-'+t);if(el)el.classList.add('on');
+}
+
+/* ═══════════════════════════════════════════════════════
+   ENTRY POINTS
+═══════════════════════════════════════════════════════ */
+function go(t){$('inp').value=t;run();}
+function run(){
+  const t=$('inp').value.trim().toUpperCase();
+  if(!t)return;
+  if(STOCKS[t]){loadStock(t);return;}
+  generateAI(t);
+}
+$('inp').addEventListener('keydown',e=>{if(e.key==='Enter')run();});
+
+/* ═══════════════════════════════════════════════════════
+   LOAD ANY PRE-BUILT STOCK — INSTANT
+═══════════════════════════════════════════════════════ */
+function loadStock(ticker){
+  const d=STOCKS[ticker];
+  if(!d)return;
+  $('inp').value=ticker; setChip(ticker);
+  showTab('overview');
+  renderHeader(d);
+  renderThesisBar(d);
+  renderKPIs(d);
+  renderOverview(d);
+  renderRevenue(d);
+  renderIncome(d);
+  renderValuation(d);
+  renderComps(d);
+  renderBalance(d);
+  renderThesis(d);
+}
+
+/* ═══════════════════════════════════════════════════════
+   AI FALLBACK — for tickers not in the database
+═══════════════════════════════════════════════════════ */
+async function generateAI(ticker){
+  $('goBtn').disabled=true; setChip(ticker);
+  showTab('overview');
+  $('coHdr').innerHTML=`<div class="co-hdr fa"><div class="col"><div class="aibadge" style="margin-bottom:8px">⚡ Analyzing ${ticker}…</div><div class="ctk">${ticker}</div><div style="display:flex;flex-direction:column;gap:6px;margin-top:8px"><div class="sk" style="height:30px;width:260px"></div><div class="sk" style="height:13px;width:80%"></div><div class="sk" style="height:13px;width:65%"></div></div></div><div class="cor"><div class="sk" style="height:46px;width:120px;margin-left:auto;margin-bottom:8px"></div><div class="sk" style="height:30px;width:140px;margin-left:auto"></div></div></div>`;
+  $('thBar').innerHTML='';
+  $('kpiArea').innerHTML=`<div class="kpis fa">${Array(8).fill(0).map(()=>`<div class="kpi"><div class="sk" style="height:9px;width:65%;margin-bottom:8px"></div><div class="sk" style="height:21px;width:78%;margin-bottom:6px"></div><div class="sk" style="height:9px;width:50%"></div></div>`).join('')}</div>`;
+  const loadH=`<div class="panel fa"><div class="pt">🤖 Generating ${ticker} Research…</div><div style="text-align:center;padding:36px 20px"><div style="width:32px;height:32px;border:3px solid var(--bd);border-top-color:var(--g);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px"></div><div style="font-family:var(--mono);font-size:12px;color:var(--mu);letter-spacing:.08em">Applying FIN 6500 methodology to ${ticker}…</div><div style="font-family:var(--mono);font-size:10px;color:var(--mu2);margin-top:8px">~8–12 seconds</div></div></div>`;
+  ['overview','revenue','income','valuation','comps','balance','thesis'].forEach(t=>{$('tc-'+t).innerHTML=loadH});
+  try{
+    const resp=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:`You are a senior equity research analyst. Apply the FIN 6500 PLAB research methodology to ${ticker}. Return ONLY clean HTML (no DOCTYPE/html/body tags). Include: Company Overview, Investment Recommendation (BUY/HOLD/SELL + price target), Key Financial Metrics table, Revenue Forecast 3-year table, Valuation Scenarios (Bear/Base/Bull) table, Peer Comparison table, Bull Case 3 reasons, Key Risks 3 risks. Use real estimated data, bold key numbers with <strong>.`}]})});
+    if(!resp.ok)throw new Error(`HTTP ${resp.status}`);
+    const data=await resp.json();
+    const html=data.content?.filter(b=>b.type==='text').map(b=>b.text).join('')||'';
+    if(!html||html.length<100)throw new Error('Empty');
+    const rMatch=html.match(/\b(BUY|SELL|HOLD)\b/i);
+    const pMatch=html.match(/\$(\d{2,4}(?:\.\d{1,2})?)\s*(?:price\s+target|PT|target)/i);
+    const rating=(rMatch?rMatch[1]:'HOLD').toUpperCase();
+    const pt=pMatch?parseFloat(pMatch[1]):null;
+    const resultH=`<div class="panel fa"><div class="pt">📊 ${ticker} — Equity Research (FIN 6500 Methodology)</div><div style="font-size:13px;color:var(--mu);line-height:1.8">${html}</div></div><div class="note ninfo">⚡ For the complete verified 3-statement model, click <strong>PLAB ★</strong> — loads instantly.</div>`;
+    ['overview','revenue','income','valuation','comps','balance','thesis'].forEach(t=>{$('tc-'+t).innerHTML=resultH});
+    $('coHdr').innerHTML=`<div class="co-hdr fa"><div class="col"><div class="aibadge" style="margin-bottom:8px">🤖 AI Research — FIN 6500 Methodology</div><div class="ctk">${ticker}</div><div class="cn">${ticker} Equity Research</div><div class="cd">AI-generated analysis using same framework as PLAB FIN 6500 project. Verify all data independently.</div></div><div class="cor"><div class="rat ${rating==='BUY'?'rb':rating==='SELL'?'rs':'rh'}">${rating==='BUY'?'▲':rating==='SELL'?'▼':'◆'} ${rating}${pt?' — $'+pt.toFixed(2):''}</div></div></div>`;
+    $('thBar').innerHTML=`<div class="thbar ${rating.toLowerCase()} fa"><span class="thi">${rating==='BUY'?'▲':rating==='SELL'?'▼':'◆'}</span><div class="thb"><strong>${rating}${pt?' — $'+pt.toFixed(2)+' PT':''}</strong> — AI-generated pitch using FIN 6500 methodology. See full analysis in the tabs below.</div></div>`;
+    $('kpiArea').innerHTML=`<div class="kpis fa"><div class="kpi"><div class="kl">Rating</div><div class="kv" style="color:${rating==='BUY'?'var(--g)':rating==='SELL'?'var(--red)':'var(--gold)'}">${rating}</div></div><div class="kpi"><div class="kl">Price Target</div><div class="kv">${pt?'$'+pt.toFixed(2):'See below'}</div></div><div class="kpi"><div class="kl">Source</div><div class="kv" style="font-size:14px">Claude AI</div></div><div class="kpi"><div class="kl">Full Model</div><div class="kv" style="color:var(--gold);cursor:pointer;font-size:16px" onclick="loadStock('PLAB')">PLAB ★</div></div></div>`;
+  }catch(err){
+    const errH=`<div class="panel fa"><div class="pt" style="color:var(--red)">⚠ ${ticker} — Analysis Failed</div><div style="font-size:13px;color:var(--mu);line-height:1.7"><strong style="color:var(--tx)">This ticker is not in the instant database.</strong><br><br>To view AI-generated analysis, host this file at a public HTTPS URL (e.g. Netlify). The Anthropic API requires HTTPS hosting.<br><br><strong>Error:</strong> <code style="font-family:var(--mono);font-size:11px;background:var(--s3);padding:2px 6px;border-radius:3px">${err.message}</code><br><br>Click <strong style="color:var(--g);cursor:pointer" onclick="loadStock('PLAB')">PLAB ★</strong> for the complete instant financial model.</div></div>`;
+    ['overview','revenue','income','valuation','comps','balance','thesis'].forEach(t=>{$('tc-'+t).innerHTML=errH});
+    $('coHdr').innerHTML=`<div class="co-hdr fa"><div class="col"><div class="ctk">${ticker}</div><div class="cn" style="color:var(--red)">Not in instant database</div><div class="cd">Click PLAB ★ above for the complete pre-built financial model.</div></div></div>`;
+    $('thBar').innerHTML='';$('kpiArea').innerHTML='';
+  }
+  $('goBtn').disabled=false;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SHARED RENDER FUNCTIONS (work for all pre-built tickers)
+═══════════════════════════════════════════════════════ */
+function renderHeader(d){
+  const up=d.chg>=0,r=d.rating.toLowerCase();
+  $('coHdr').innerHTML=`
+    <div class="co-hdr fa">
+      <div class="col">
+        ${d.isFeatured?`<div class="feat-badge">★ FEATURED PROJECT — FIN 6500 · SPRING 2025</div><br>`:`<div class="inst-badge" style="margin-bottom:6px">⚡ Pre-Built Instant Model</div><br>`}
+        <div class="ctk">${d.ticker}${d.exchange?' · '+d.exchange:''}</div>
+        <div class="cn">${d.name}</div>
+        <div class="cd">${d.desc}</div>
+        <div class="cmeta">
+          <span class="ctag">${d.sector}</span>
+          <span class="ctag">${d.industry}</span>
+          ${d.isFeatured?`<span class="ctag">11 Global Sites</span><span class="ctag">FY End: Oct 31</span>`:''}
+        </div>
+      </div>
+      <div class="cor">
+        <div class="cprice">$${d.price.toFixed(2)}</div>
+        <div class="cchg ${up?'up':'dn'}">${sgn(d.chg)}$${Math.abs(d.chg).toFixed(2)} (${sgn(d.chgPct)}${d.chgPct.toFixed(2)}%)</div>
+        <div class="cinfo">Mkt Cap: ${fB(d.mktcap)}</div>
+        <div class="rat ${r==='buy'?'rb':r==='sell'?'rs':'rh'}">${r==='buy'?'▲':r==='sell'?'▼':'◆'} ${d.rating} — PT $${d.pt.toFixed(2)}</div>
+        ${d.wt?`<div class="cinfo" style="margin-top:5px">2-Yr Target: <span style="color:var(--gold);font-weight:600">$${d.wt.toFixed(2)}</span> <span class="${d.wt>d.price?'up':'dn'}">(${sgn(d.wt/d.price-1)}${((d.wt/d.price-1)*100).toFixed(0)}%)</span></div>`:''}
+      </div>
+    </div>`;}
+
+function renderThesisBar(d){
+  const cls=d.rating.toLowerCase(),icon=cls==='buy'?'▲':cls==='sell'?'▼':'◆';
+  $('thBar').innerHTML=`
+    <div class="thbar ${cls} fa">
+      <span class="thi">${icon}</span>
+      <div class="thb"><strong>${d.rating} — $${d.pt.toFixed(2)} Price Target</strong> — ${d.thesis}</div>
+    </div>`;}
+
+function renderKPIs(d){
+  $('kpiArea').innerHTML=`<div class="kpis fa">${d.kpis.map(k=>`<div class="kpi"><div class="kl">${k.l}</div><div class="kv">${k.v}</div><div class="ks ${k.c}">${k.s}</div></div>`).join('')}</div>`;}
+
+function renderOverview(d){
+  const yrs=['2020A','2021A','2022A','2023A','2024A','2025P','2026P','2027P','2028P','2029P'];
+  $('tc-overview').innerHTML=`
+    <div class="g21">
+      <div class="panel">
+        <div class="pt">Company Profile</div>
+        <p style="font-size:13px;color:var(--mu);line-height:1.75;margin-bottom:16px">${d.desc}</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">
+          ${[['Ticker',d.ticker],['Exchange',d.exchange||'—'],['Sector',d.sector],['Industry',d.industry],['Rating',d.rating],['Price Target','$'+d.pt.toFixed(2)]].map(([l,v])=>`
+          <div style="background:var(--s2);border-radius:6px;padding:9px 11px">
+            <div style="font-family:var(--mono);font-size:9px;color:var(--mu);letter-spacing:.1em;margin-bottom:3px">${l}</div>
+            <div style="font-weight:500;font-size:12px">${v}</div>
+          </div>`).join('')}
+        </div>
+        <div class="pt">Investment Thesis Summary</div>
+        <p style="font-size:13px;color:var(--mu);line-height:1.7">${d.thesis}</p>
+        ${d.isFeatured?`<div class="note nok" style="margin-top:14px">Historical CAGR: 7.29% · Forward CAGR: 5.28% · Revenue Target: $1.21B by FY2029P<br>Data: PLAB 10-K SEC Filings · Yahoo Finance · FIN 6500 Financial Model</div>`:''}
+      </div>
+      <div>
+        <div class="panel" style="margin-bottom:14px">
+          <div class="pt">Valuation Summary</div>
+          <table class="dt"><tbody>
+            ${d.kpis.slice(4,8).map(k=>`<tr><td>${k.l}</td><td><strong>${k.v}</strong></td><td style="font-family:var(--mono);font-size:10px;color:var(--mu)">${k.s}</td></tr>`).join('')}
+            <tr class="dta"><td>Price Target</td><td>$${d.pt.toFixed(2)}</td><td style="color:var(--g)">${sgn(d.pt/d.price-1)}${((d.pt/d.price-1)*100).toFixed(0)}%</td></tr>
+            ${d.wt?`<tr class="dta"><td>2-Yr Wtd. Target</td><td>$${d.wt.toFixed(2)}</td><td style="color:var(--g)">${sgn(d.wt/d.price-1)}${((d.wt/d.price-1)*100).toFixed(0)}%</td></tr>`:''}
+          </tbody></table>
+        </div>
+        <div class="panel">
+          <div class="pt">Revenue by Geography / Segment</div>
+          ${d.geo.map(g=>`
+          <div class="georow">
+            <span class="geolbl">${g.n}</span>
+            <div class="geotr"><div class="geofil" style="width:${Math.min(100,g.p*100)}%"></div></div>
+            <span class="geov">${g.v>=1000?'$'+(g.v/1000).toFixed(0)+'K':'$'+g.v.toFixed(0)+'B'}</span>
+          </div>`).join('')}
+        </div>
+      </div>
+    </div>`;}
+
+function renderRevenue(d){
+  const maxT=Math.max(...d.segs.map(s=>s.a+s.b+s.c+s.d));
+  const chart=d.segs.map(s=>{
+    const t=s.a+s.b+s.c+s.d,h=(t/maxT)*104;
+    const lbl=t>=1000?`$${(t/1000).toFixed(1)}T`:t>=100?`$${t.toFixed(0)}B`:`$${t.toFixed(1)}B`;
+    return`<div class="bcol"><div class="bvl" style="${s.e?'color:var(--gold)':''}">${lbl}</div>
+    <div class="bstk" style="height:${h}px;${s.e?'opacity:.72;border:1px dashed rgba(212,160,23,.35);border-radius:2px':''}">
+      <div class="b4" style="height:${(s.d/t)*h}px"></div><div class="b3" style="height:${(s.c/t)*h}px"></div>
+      <div class="b2" style="height:${(s.b/t)*h}px"></div><div class="b1" style="height:${(s.a/t)*h}px"></div>
+    </div><div class="byl" style="${s.e?'color:var(--gold)':''}">${s.y}</div></div>`;
+  }).join('');
+  const yrs=d.segs.map(s=>s.y);
+  $('tc-revenue').innerHTML=`
+    <div class="g21">
+      <div class="panel">
+        <div class="pt">Revenue Build by Segment</div>
+        <div style="overflow-x:auto">
+          <table class="dt" style="min-width:620px">
+            <thead><tr><th>Segment</th>${yrs.map((y,i)=>`<th style="${i>=5?'color:var(--gold)':''}">${y}</th>`).join('')}</tr></thead>
+            <tbody>
+              ${d.segLabels.map((lbl,si)=>{
+                const key=['a','b','c','d'][si];
+                return`<tr><td style="color:${['var(--blu)','#e07b2a','var(--g)','#5a7fa0'][si]};font-weight:600">${lbl}</td>${d.segs.map((r,i)=>`<td style="${i>=5?'color:var(--gold)':''}">${r[key]===0?'—':r[key].toFixed(1)}</td>`).join('')}</tr>`;
+              }).join('')}
+              <tr class="dtt"><td>Total</td>${d.segs.map((r,i)=>{const t=r.a+r.b+r.c+r.d;return`<td style="${i>=5?'color:var(--gold)':''}">${t.toFixed(1)}</td>`}).join('')}</tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="pt">Revenue Chart</div>
+        <div class="bcht">${chart}</div>
+        <div class="segl">
+          ${d.segLabels.map((l,i)=>`<div class="segi"><div class="segd" style="background:${['var(--blu)','#e07b2a','var(--g)','#5a7fa0'][i]}"></div>${l.split('(')[0].trim()}</div>`).join('')}
+        </div>
+      </div>
+    </div>`;}
+
+function renderIncome(d){
+  const yrs=['FY20A/FY21A','FY21A/FY22A','FY22A','FY23A','FY24A','FY25P','FY26P','FY27P','FY28P','FY29P'].slice(0,d.income[0].v.length);
+  const hdrs=d.isFeatured?['2020A','2021A','2022A','2023A','2024A','2025P','2026P','2027P','2028P','2029P']:d.segs.map(s=>s.y);
+  $('tc-income').innerHTML=`
+    <div class="panel" style="margin-bottom:16px">
+      <div class="pt">Income Statement${d.isFeatured?' ($M)':`  — All figures in company's reported currency`}</div>
+      <div style="overflow-x:auto">
+        <table class="dt" style="min-width:720px">
+          <thead><tr><th style="width:140px">Item</th>${hdrs.map((y,i)=>`<th style="${i>=5?'color:var(--gold)':''}">${y}</th>`).join('')}${d.income[0].hc?'<th>H.CAGR</th><th>F.CAGR</th>':''}</tr></thead>
+          <tbody>${d.income.map(r=>`
+          <tr class="${r.t==='tot'?'dtt':r.t==='acc'?'dta':r.t==='sub'?'dts':''}">
+            <td>${r.l}</td>${r.v.map((v,i)=>`<td style="${i>=5?'color:var(--gold)':''}">${fN(v)}</td>`).join('')}
+            ${r.hc!==undefined?`<td>${r.hc}</td><td style="color:var(--gold)">${r.fc}</td>`:''}
+          </tr>`).join('')}</tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="pt">Margin Expansion Trend</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+        ${d.income.filter(r=>r.t==='sub'&&r.l.includes('%')).slice(0,2).map(r=>`
+        <div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--mu);margin-bottom:8px">${r.l}</div>
+          ${r.v.slice(0,6).map((v,i)=>`
+          <div class="pr"><span class="pn" style="min-width:60px">${hdrs[i]}</span>
+          <div class="ptrk"><div class="pf pfg" style="width:${parseFloat(v)/60*100}%"></div></div>
+          <span class="pv" style="${i>=5?'color:var(--gold)':''}">${v}</span></div>`).join('')}
+        </div>`).join('')}
+      </div>
+    </div>`;}
+
+function renderValuation(d){
+  const eps=[1.80,2.00,2.50,3.00,4.00,5.00,6.00,8.00],mults=[10,15,20,25,30,40,50,60];
+  $('tc-valuation').innerHTML=`
+    <div class="g3">
+      <div class="panel">
+        <div class="pt">P/E Valuation</div>
+        <div class="scg">${d.peScen.map(s=>`<div class="sc ${s.s}"><div class="scl">${s.l}</div><div class="scm">${s.m}</div><div class="scp">$${typeof s.p==='number'?s.p.toFixed(0):s.p}</div><div class="scu">${s.u>0?'+':''}${s.u.toFixed(1)}%</div></div>`).join('')}</div>
+      </div>
+      <div class="panel">
+        <div class="pt">P/B Valuation</div>
+        <div class="scg">${d.pbScen.map(s=>`<div class="sc ${s.s}"><div class="scl">${s.l}</div><div class="scm">${s.m}</div><div class="scp">$${typeof s.p==='number'?s.p.toFixed(0):s.p}</div><div class="scu">${s.u>0?'+':''}${s.u.toFixed(1)}%</div></div>`).join('')}</div>
+      </div>
+      <div class="panel">
+        <div class="pt">EV/EBITDA Valuation</div>
+        <div class="scg">${d.evScen.map(s=>`<div class="sc ${s.s}"><div class="scl">${s.l}</div><div class="scm">${s.m}</div><div class="scp">$${typeof s.p==='number'?s.p.toFixed(0):s.p}</div><div class="scu">${s.u>0?'+':''}${s.u.toFixed(1)}%</div></div>`).join('')}</div>
+      </div>
+    </div>
+    <div class="panel" style="margin-bottom:16px">
+      <div class="pt pt-gold">Probability-Weighted Price Target</div>
+      <div class="g2" style="margin-bottom:0">
+        <table class="wtbl"><thead><tr><th>Method</th><th>Target</th><th>Weight</th><th>Contribution</th></tr></thead>
+        <tbody>${d.wtdRows.map(r=>`<tr><td>${r.m}</td><td>$${typeof r.t==='number'?r.t.toFixed(0):r.t}</td><td>${r.w}</td><td>$${typeof r.c==='number'?r.c.toFixed(0):r.c}</td></tr>`).join('')}
+        <tr><td>2-Year Weighted Target</td><td></td><td>100%</td><td><strong>$${d.wt.toFixed(0)}</strong></td></tr></tbody></table>
+        <div class="wtdbox">
+          <div class="wl">Probability-Weighted Target</div>
+          <div class="wp">$${d.wt.toFixed(0)}</div>
+          <div class="wu">${sgn(d.wt/d.price-1)}${((d.wt/d.price-1)*100).toFixed(1)}% vs $${d.price.toFixed(2)}</div>
+          <div class="wm">EV/EBITDA 30% · P/E 40% · P/B 30%</div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--mu);margin-top:6px">12-Month Target: $${d.pt.toFixed(0)} (${sgn(d.pt/d.price-1)}${((d.pt/d.price-1)*100).toFixed(0)}%)</div>
+        </div>
+      </div>
+    </div>`;}
+
+function renderComps(d){
+  $('tc-comps').innerHTML=`
+    <div class="panel">
+      <div class="pt">Comparable Company Analysis</div>
+      <div style="overflow-x:auto">
+        <table class="dt" style="min-width:650px">
+          <thead><tr><th>Company</th><th>Ticker</th><th>Mkt Cap</th><th>EV/EBITDA</th><th>P/E</th><th>P/B</th><th>Rev Gr</th><th>Gross Mg</th><th>Net Mg</th><th>Note</th></tr></thead>
+          <tbody>${d.comps.map(r=>`
+          <tr class="${r.self?'dthl':''}${r.med?' dtt':''}">
+            <td>${r.n}</td><td style="font-family:var(--mono);font-size:10px">${r.t}</td><td>${r.mc}</td>
+            <td ${r.self?'style="color:var(--red);font-weight:700"':''}>${r.ee}</td>
+            <td ${r.self?'style="color:var(--red);font-weight:700"':''}>${r.pe}</td>
+            <td ${r.self?'style="color:var(--red);font-weight:700"':''}>${r.pb}</td>
+            <td class="${r.rg&&r.rg.startsWith('-')?'dn':'up'}">${r.rg||''}</td>
+            <td>${r.gm}</td><td>${r.nm}</td>
+            <td style="font-family:var(--mono);font-size:9px;color:${r.self?'var(--g)':'var(--mu)'}">${r.note||''}</td>
+          </tr>`).join('')}</tbody>
+        </table>
+      </div>
+    </div>`;}
+
+function renderBalance(d){
+  $('tc-balance').innerHTML=`
+    <div class="panel">
+      <div class="pt">Balance Sheet${d.isFeatured?' ($M)':''}</div>
+      <table class="dt"><thead><tr><th>Item</th>${d.balHdrs.map((h,i)=>`<th style="${i>=3?'color:var(--gold)':''}">${h}</th>`).join('')}</tr></thead>
+      <tbody>${d.balance.map(r=>`
+      <tr class="${r.t==='tot'?'dtt':r.t==='acc'?'dta':r.t==='sub'?'dts':''}">
+        <td>${r.l}</td>
+        <td>${fN(r.y0)}</td><td>${fN(r.y2)}</td><td>${r.y4<1&&r.y4>0?'~0':fN(r.y4)}</td>
+        <td style="color:var(--gold)">${fN(r.y6)}</td><td style="color:var(--gold)">${fN(r.y9)}</td>
+      </tr>`).join('')}</tbody></table>
+      <div class="note nok" style="margin-top:12px">Historicals from annual reports · Projections from FIN 6500 methodology applied</div>
+    </div>`;}
+
+function renderThesis(d){
+  $('tc-thesis').innerHTML=`
+    <div class="g2">
+      <div class="panel">
+        <div class="pt">Bull Case — 3 Key Reasons</div>
+        <ul class="buls">${d.bull.map((p,i)=>`
+        <li class="buli"><div class="buln bng">${i+1}</div>
+        <div><strong>${p.t}.</strong> ${p.b}</div></li>`).join('')}</ul>
+      </div>
+      <div class="panel">
+        <div class="pt">Key Risks &amp; Mitigants</div>
+        <ul class="buls">${d.risk.map((p,i)=>`
+        <li class="buli"><div class="buln bnr">${i+1}</div>
+        <div><strong>${p.t}.</strong> ${p.b}</div></li>`).join('')}</ul>
+        ${d.isFeatured?`<div class="note ninfo" style="margin-top:14px">Analysts: Rishi Patel · Katty Guerra · Smriti Amar · Camden Smith | FIN 6500 | Spring 2025</div>`:''}
+      </div>
+    </div>
+    <div class="panel">
+      <div class="pt pt-gold">Final Recommendation</div>
+      <p style="font-size:13px;color:var(--mu);line-height:1.8">
+        <strong style="color:var(--tx)">Rating: ${d.rating} &nbsp;|&nbsp; 12-Month Target: $${d.pt.toFixed(0)} (${sgn(d.pt/d.price-1)}${((d.pt/d.price-1)*100).toFixed(0)}%)${d.wt?` &nbsp;|&nbsp; 2-Year Weighted: $${d.wt.toFixed(0)} (${sgn(d.wt/d.price-1)}${((d.wt/d.price-1)*100).toFixed(0)}%)`:''}.</strong><br><br>
+        ${d.thesis}<br><br>
+        ${d.isFeatured?`Our multi-method valuation (P/E base $27.00 · P/B base $22.44 · EV/EBITDA base $48.40) produces a probability-weighted 2-year target of <strong style="color:var(--g)">$${d.wt.toFixed(2)}</strong> and 12-month analyst target of <strong style="color:var(--g)">$${d.pt.toFixed(2)}</strong>. We rate PLAB a BUY.`:`The ${d.rating} rating reflects our analysis using the FIN 6500 research methodology: revenue build, 3-statement modeling, and multi-method valuation.`}
+      </p>
+    </div>
+    <div style="margin-top:12px;padding:12px 16px;background:var(--s1);border:1px solid var(--bd);border-radius:8px;font-family:var(--mono);font-size:9px;color:var(--mu);line-height:1.9">
+      ⚠ DISCLOSURE: Research prepared for educational purposes (FIN 6500). Data sources: Yahoo Finance, SEC EDGAR 10-K, company investor relations, Morningstar, GuruFocus. Financial projections are model-derived estimates. Not investment advice.${d.isFeatured?' PLAB prices as of April 24, 2025.':''}
+    </div>`;}
+
+/* Boot */
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>loadStock('PLAB'),80));
+</script>
+</body>
+</html>
